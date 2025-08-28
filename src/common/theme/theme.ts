@@ -14,9 +14,12 @@ declare module '@mui/material/styles' {
     }
     interface TypeText {
         default: string;
+        description: string;
+        caption: string;
     }
     interface TypeIcon {
         default: string;
+        caption: string;
     }
 }
 
@@ -26,9 +29,12 @@ export const light: PaletteOptions = {
     },
     text: {
         default: Palette.black,
+        description: Palette.gray4,
+        caption: Palette.gray3,
     },
     icon: {
         default: Palette.black,
+        caption: Palette.gray3,
     },
 };
 
@@ -38,8 +44,11 @@ export const dark: PaletteOptions = {
     },
     text: {
         default: Palette.black,
+        description: Palette.gray4,
+        caption: Palette.gray3,
     },
     icon: {
         default: Palette.black,
+        caption: Palette.gray3,
     },
 };

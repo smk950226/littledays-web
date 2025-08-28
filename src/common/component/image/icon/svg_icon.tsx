@@ -18,6 +18,7 @@ type Props = MuiComponent & {
     width?: number;
     height?: number;
     color?: string;
+    baseColor?: boolean;
 };
 
 export default function SvgIcon({
@@ -26,6 +27,7 @@ export default function SvgIcon({
     width: w,
     height: h,
     color,
+    baseColor = true,
     sx,
 }: Props) {
     const { theme } = useTheme();
@@ -56,7 +58,9 @@ export default function SvgIcon({
             sx={{
                 width,
                 height,
-                color: color ?? theme.icon.default,
+                ...((color || baseColor) && {
+                    color: color ?? theme.icon.default,
+                }),
                 ...sx,
             }}
         />

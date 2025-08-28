@@ -3,4 +3,7 @@ export default abstract class Palette {
 
     static white = '#FFFFFF';
     static black = '#111111';
+
+    static gray3 = '#B6B6B6';
+    static gray4 = '#5A5A5A';
 }

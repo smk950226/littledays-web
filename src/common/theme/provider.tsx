@@ -7,6 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Sizing from './sizing';
 import { dark, light } from './theme';
 import MuiTypography from './component/typography';
+import MuiSvgIcon from './component/svg_icon';
 
 import type { Children } from '../data/type/component';
 
@@ -36,6 +37,7 @@ export default function ThemeProvider({ children }: Children) {
             },
         },
         components: {
+            MuiSvgIcon,
             MuiTypography,
         },
         breakpoints: {
