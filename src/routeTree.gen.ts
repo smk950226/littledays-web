@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DownloadIndexRouteImport } from './routes/download/index'
+import { Route as PolicyServiceIndexRouteImport } from './routes/policy/service/index'
+import { Route as PolicyPrivacyIndexRouteImport } from './routes/policy/privacy/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +24,49 @@ const DownloadIndexRoute = DownloadIndexRouteImport.update({
   path: '/download/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PolicyServiceIndexRoute = PolicyServiceIndexRouteImport.update({
+  id: '/policy/service/',
+  path: '/policy/service/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolicyPrivacyIndexRoute = PolicyPrivacyIndexRouteImport.update({
+  id: '/policy/privacy/',
+  path: '/policy/privacy/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/download': typeof DownloadIndexRoute
+  '/policy/privacy': typeof PolicyPrivacyIndexRoute
+  '/policy/service': typeof PolicyServiceIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/download': typeof DownloadIndexRoute
+  '/policy/privacy': typeof PolicyPrivacyIndexRoute
+  '/policy/service': typeof PolicyServiceIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/download/': typeof DownloadIndexRoute
+  '/policy/privacy/': typeof PolicyPrivacyIndexRoute
+  '/policy/service/': typeof PolicyServiceIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/download'
+  fullPaths: '/' | '/download' | '/policy/privacy' | '/policy/service'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/download'
-  id: '__root__' | '/' | '/download/'
+  to: '/' | '/download' | '/policy/privacy' | '/policy/service'
+  id: '__root__' | '/' | '/download/' | '/policy/privacy/' | '/policy/service/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DownloadIndexRoute: typeof DownloadIndexRoute
+  PolicyPrivacyIndexRoute: typeof PolicyPrivacyIndexRoute
+  PolicyServiceIndexRoute: typeof PolicyServiceIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +85,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DownloadIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/policy/service/': {
+      id: '/policy/service/'
+      path: '/policy/service'
+      fullPath: '/policy/service'
+      preLoaderRoute: typeof PolicyServiceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/policy/privacy/': {
+      id: '/policy/privacy/'
+      path: '/policy/privacy'
+      fullPath: '/policy/privacy'
+      preLoaderRoute: typeof PolicyPrivacyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DownloadIndexRoute: DownloadIndexRoute,
+  PolicyPrivacyIndexRoute: PolicyPrivacyIndexRoute,
+  PolicyServiceIndexRoute: PolicyServiceIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
