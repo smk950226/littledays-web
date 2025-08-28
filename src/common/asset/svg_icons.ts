@@ -19,7 +19,7 @@ export default abstract class SvgIcons {
 
     static logo: Asset = {
         src: logo,
-        width: 428,
-        height: 162,
+        width: 231,
+        height: 169,
     };
 }

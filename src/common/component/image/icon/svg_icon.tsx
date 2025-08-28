@@ -22,13 +22,13 @@ type Props = MuiComponent & {
 };
 
 export default function SvgIcon({
+    sx,
     icon,
     size,
     width: w,
     height: h,
     color,
     baseColor = true,
-    sx,
 }: Props) {
     const { theme } = useTheme();
 

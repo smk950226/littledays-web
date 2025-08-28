@@ -7,9 +7,9 @@ export default function Loading() {
     return (
         <Center
             sx={{
-                paddingLeft: Sizing.padding.horizontal,
-                paddingRight: Sizing.padding.horizontal,
                 minHeight: '100dvh',
+                py: Sizing.padding.vertical,
+                px: Sizing.padding.horizontal,
             }}
         >
             <SvgIcon icon={SvgIcons.logo} width={120} />

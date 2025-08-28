@@ -19,6 +19,7 @@ type Props = MuiComponent & {
 };
 
 export default function Alert({
+    sx,
     icon = SvgIcons.alert,
     size = 72,
     iconColor,
@@ -26,7 +27,6 @@ export default function Alert({
     title,
     titleGap,
     caption,
-    sx,
 }: Props) {
     const { theme } = useTheme();
 

@@ -5,9 +5,11 @@ import Palette from './palette';
 declare module '@mui/material/styles' {
     interface PaletteOptions {
         icon: TypeIcon;
+        button: TypeButton;
     }
     interface Palette {
         icon: TypeIcon;
+        button: TypeButton;
     }
     interface TypeBackground {
         default: string;
@@ -20,6 +22,16 @@ declare module '@mui/material/styles' {
     interface TypeIcon {
         default: string;
         caption: string;
+    }
+    interface TypeButton {
+        background: {
+            default: string;
+            disabled: string;
+        };
+        text: {
+            default: string;
+            disabled: string;
+        };
     }
 }
 
@@ -36,6 +48,16 @@ export const light: PaletteOptions = {
         default: Palette.black,
         caption: Palette.gray3,
     },
+    button: {
+        background: {
+            default: Palette.primary,
+            disabled: Palette.gray2,
+        },
+        text: {
+            default: Palette.black,
+            disabled: Palette.black,
+        },
+    },
 };
 
 export const dark: PaletteOptions = {
@@ -50,5 +72,15 @@ export const dark: PaletteOptions = {
     icon: {
         default: Palette.black,
         caption: Palette.gray3,
+    },
+    button: {
+        background: {
+            default: Palette.primary,
+            disabled: Palette.gray2,
+        },
+        text: {
+            default: Palette.black,
+            disabled: Palette.black,
+        },
     },
 };

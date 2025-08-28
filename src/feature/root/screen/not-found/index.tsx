@@ -10,9 +10,9 @@ export default function NotFound() {
     return (
         <Center
             sx={{
-                paddingLeft: Sizing.padding.horizontal,
-                paddingRight: Sizing.padding.horizontal,
                 minHeight: '100dvh',
+                py: Sizing.padding.vertical,
+                px: Sizing.padding.horizontal,
             }}
         >
             <Alert
