@@ -1,3 +1,4 @@
+import { Link, useLocation } from '@tanstack/react-router';
 import { alpha } from '@mui/material/styles';
 
 import SvgIcons from '../../../../common/asset/svg_icons';
@@ -10,9 +11,22 @@ import useI18n from '../../../../common/i18n/hook/use_i18n';
 import Subtitle3 from '../../../../common/component/layout/typography/subtitle3';
 import SubmitButton from '../../../../common/component/button/button/submit_button';
 import { goStore } from '../../../../common/helper/store.helper';
+import Row from '../../../../common/component/layout/grid/row';
+import useTheme from '../../../../common/theme/hook/use_theme';
+import Caption1 from '../../../../common/component/layout/typography/caption1';
+import { useEffect } from 'react';
 
 export default function Home() {
+    const location = useLocation();
+
     const { t } = useI18n();
+    const { theme } = useTheme();
+
+    useEffect(() => {
+        if (location.pathname.startsWith('/download')) {
+            goStore();
+        }
+    }, []);
 
     return (
         <Center
@@ -43,6 +57,31 @@ export default function Home() {
                 onClick={goStore}
                 sx={{ px: 56, mt: 78 }}
             />
+            <Row
+                alignItems={'center'}
+                justifyContent={'center'}
+                sx={{ mt: 22 }}
+            >
+                <Link
+                    to={'/policy/privacy'}
+                    style={{
+                        textDecorationColor: theme.text.default,
+                        textDecorationLine: 'underline',
+                    }}
+                >
+                    <Caption1>{t('policyPrivacy')}</Caption1>
+                </Link>
+                <Link
+                    to={'/policy/service'}
+                    style={{
+                        textDecorationColor: theme.text.default,
+                        textDecorationLine: 'underline',
+                        marginLeft: 20,
+                    }}
+                >
+                    <Caption1>{t('policyService')}</Caption1>
+                </Link>
+            </Row>
         </Center>
     );
 }
