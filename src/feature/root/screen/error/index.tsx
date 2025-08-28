@@ -1,9 +1,12 @@
 import SvgIcons from '../../../../common/asset/svg_icons';
 import Center from '../../../../common/component/layout/grid/center';
 import Alert from '../../../../common/component/layout/spacer/alert';
+import useI18n from '../../../../common/i18n/hook/use_i18n';
 import Sizing from '../../../../common/theme/sizing';
 
 export default function Error() {
+    const { t } = useI18n();
+
     return (
         <Center
             sx={{
@@ -14,9 +17,9 @@ export default function Error() {
         >
             <Alert
                 icon={SvgIcons.babyAlert}
-                title={'오류가 발생했어요.'}
+                title={t('errorTitle')}
                 titleGap={4}
-                caption={'잠시 후 다시 시도해주세요.'}
+                caption={t('errorDescription')}
                 baseColor={false}
             />
         </Center>

@@ -1,9 +1,12 @@
 import SvgIcons from '../../../../common/asset/svg_icons';
 import Center from '../../../../common/component/layout/grid/center';
 import Alert from '../../../../common/component/layout/spacer/alert';
+import useI18n from '../../../../common/i18n/hook/use_i18n';
 import Sizing from '../../../../common/theme/sizing';
 
 export default function NotFound() {
+    const { t } = useI18n();
+
     return (
         <Center
             sx={{
@@ -14,9 +17,9 @@ export default function NotFound() {
         >
             <Alert
                 icon={SvgIcons.babyAlert}
-                title={'페이지를 찾을 수 없어요.'}
+                title={t('notFoundTitle')}
                 titleGap={4}
-                caption={'경로를 확인해주세요.'}
+                caption={t('notFoundDescription')}
                 baseColor={false}
             />
         </Center>

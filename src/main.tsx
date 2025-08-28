@@ -1,4 +1,5 @@
 import './common/theme/css/global.css';
+import './common/i18n/i18n.ts';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from '@tanstack/react-router';
