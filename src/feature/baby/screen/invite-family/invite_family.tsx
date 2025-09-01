@@ -1,4 +1,5 @@
 import { useLoaderData } from '@tanstack/react-router';
+import { isAndroid, isDesktop, isIOS } from 'react-device-detect';
 
 import Box from '@mui/material/Box';
 
@@ -13,13 +14,13 @@ import Body3 from '@/common/component/layout/typography/body3';
 import useTheme from '@/common/theme/hook/use_theme';
 import NetworkImage from '@/common/component/image/image/network_image';
 import Palette from '@/common/theme/palette';
-import Row from '@/common/component/layout/grid/row';
-import Caption1 from '@/common/component/layout/typography/caption1';
-import Subtitle3 from '@/common/component/layout/typography/subtitle3';
 import { toUpperCaseFirst } from '@/common/helper/string';
 import { toLocalYYYYMMDD } from '@/common/helper/date';
 import { getBabyBirth } from '../../helper/get_baby_birth';
 import SubmitButton from '@/common/component/button/button/submit_button';
+import { goStore } from '@/common/helper/store';
+import Information from './component/information';
+import Env from '@/common/constant/env';
 
 export default function InviteFamily() {
     const { baby } = useLoaderData({
@@ -27,6 +28,27 @@ export default function InviteFamily() {
     });
     const { t } = useI18n();
     const { theme } = useTheme();
+
+    const openApp = () => {
+        if (!baby) return;
+        if (isDesktop) {
+            goStore();
+        } else {
+            window.location.href = `littledays://invite/${baby.code}`;
+            setTimeout(function () {
+                if (isIOS) {
+                    goStore();
+                } else if (isAndroid) {
+                    window.location.href =
+                        `intent://invite/${baby.code}#Intent;scheme=littledays;package=${import.meta.env[Env.store.android]};S.browser_fallback_url=` +
+                        encodeURIComponent(
+                            'https://play.google.com/store/apps/details?id=${import.meta.env[Env.store.android]}',
+                        ) +
+                        ';end';
+                }
+            }, 400);
+        }
+    };
 
     if (!baby) {
         return (
@@ -93,29 +115,24 @@ export default function InviteFamily() {
                     px: 32,
                 }}
             >
-                <Row alignItems={'center'}>
-                    <Caption1 color={theme.text.description} sx={{ width: 67 }}>
-                        {t('babyNameTitle')}
-                    </Caption1>
-                    <Subtitle3>{baby.name}</Subtitle3>
-                </Row>
-                <Row alignItems={'center'} sx={{ mt: 12 }}>
-                    <Caption1 color={theme.text.description} sx={{ width: 67 }}>
-                        {t('babyBirthTitle')}
-                    </Caption1>
-                    <Subtitle3>{toLocalYYYYMMDD(getBabyBirth(baby))}</Subtitle3>
-                </Row>
-                <Row alignItems={'center'} sx={{ mt: 12 }}>
-                    <Caption1 color={theme.text.description} sx={{ width: 67 }}>
-                        {t('babyGenderTitle')}
-                    </Caption1>
-                    <Subtitle3>
-                        {t(`gender${toUpperCaseFirst(baby.gender)}`)}
-                    </Subtitle3>
-                </Row>
+                <Information
+                    title={t('babyNameTitle')}
+                    information={baby.name}
+                />
+                <Information
+                    title={t('babyBirthTitle')}
+                    information={toLocalYYYYMMDD(getBabyBirth(baby))}
+                    sx={{ mt: 12 }}
+                />
+                <Information
+                    title={t('babyGenderTitle')}
+                    information={t(`gender${toUpperCaseFirst(baby.gender)}`)}
+                    sx={{ mt: 12 }}
+                />
             </Box>
             <SubmitButton
                 text={t('inviteFamilyJoinText')}
+                onClick={openApp}
                 sx={{ px: 56, mt: 78 }}
             />
         </Center>
