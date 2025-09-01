@@ -7,6 +7,7 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 import ThemeProvider from './common/theme/provider.tsx';
 import router from './common/router/index.ts';
+import RepositoryProvider from './common/repository/provider.tsx';
 
 declare module '@tanstack/react-router' {
     interface Register {
@@ -17,8 +18,10 @@ declare module '@tanstack/react-router' {
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <ThemeProvider>
-            <RouterProvider router={router} />
-            <TanStackRouterDevtools router={router} />
+            <RepositoryProvider>
+                <RouterProvider router={router} />
+                <TanStackRouterDevtools router={router} />
+            </RepositoryProvider>
         </ThemeProvider>
     </StrictMode>,
 );

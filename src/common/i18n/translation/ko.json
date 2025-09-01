@@ -7,5 +7,6 @@
     "homeDescription": "리틀데이즈를 시작하고 아이의 일상을 가족들과 공유해 보세요!",
     "homeStartText": "시작하기",
     "policyPrivacy": "개인정보 처리방침",
-    "policyService": "서비스 이용약관"
+    "policyService": "서비스 이용약관",
+    "errorExecutionUnknown": "오류가 발생하였습니다. 잠시 후 다시 시도해주세요."
 }
