@@ -42,7 +42,7 @@ export default function Invite() {
                     window.location.href =
                         `intent://invite/${baby.code}#Intent;scheme=littledays;package=${import.meta.env[Env.store.android]};S.browser_fallback_url=` +
                         encodeURIComponent(
-                            'https://play.google.com/store/apps/details?id=${import.meta.env[Env.store.android]}',
+                            `https://play.google.com/store/apps/details?id=${import.meta.env[Env.store.android]}`,
                         ) +
                         ';end';
                 }
