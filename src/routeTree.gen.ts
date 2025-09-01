@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as DownloadIndexRouteImport } from './routes/download/index'
 import { Route as PolicyServiceIndexRouteImport } from './routes/policy/service/index'
 import { Route as PolicyPrivacyIndexRouteImport } from './routes/policy/privacy/index'
+import { Route as PolicyCsaeIndexRouteImport } from './routes/policy/csae/index'
 import { Route as InviteCodeIndexRouteImport } from './routes/invite/$code/index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const PolicyPrivacyIndexRoute = PolicyPrivacyIndexRouteImport.update({
   path: '/policy/privacy/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PolicyCsaeIndexRoute = PolicyCsaeIndexRouteImport.update({
+  id: '/policy/csae/',
+  path: '/policy/csae/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InviteCodeIndexRoute = InviteCodeIndexRouteImport.update({
   id: '/invite/$code/',
   path: '/invite/$code/',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/download': typeof DownloadIndexRoute
   '/invite/$code': typeof InviteCodeIndexRoute
+  '/policy/csae': typeof PolicyCsaeIndexRoute
   '/policy/privacy': typeof PolicyPrivacyIndexRoute
   '/policy/service': typeof PolicyServiceIndexRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/download': typeof DownloadIndexRoute
   '/invite/$code': typeof InviteCodeIndexRoute
+  '/policy/csae': typeof PolicyCsaeIndexRoute
   '/policy/privacy': typeof PolicyPrivacyIndexRoute
   '/policy/service': typeof PolicyServiceIndexRoute
 }
@@ -60,6 +68,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/download/': typeof DownloadIndexRoute
   '/invite/$code/': typeof InviteCodeIndexRoute
+  '/policy/csae/': typeof PolicyCsaeIndexRoute
   '/policy/privacy/': typeof PolicyPrivacyIndexRoute
   '/policy/service/': typeof PolicyServiceIndexRoute
 }
@@ -69,6 +78,7 @@ export interface FileRouteTypes {
     | '/'
     | '/download'
     | '/invite/$code'
+    | '/policy/csae'
     | '/policy/privacy'
     | '/policy/service'
   fileRoutesByTo: FileRoutesByTo
@@ -76,6 +86,7 @@ export interface FileRouteTypes {
     | '/'
     | '/download'
     | '/invite/$code'
+    | '/policy/csae'
     | '/policy/privacy'
     | '/policy/service'
   id:
@@ -83,6 +94,7 @@ export interface FileRouteTypes {
     | '/'
     | '/download/'
     | '/invite/$code/'
+    | '/policy/csae/'
     | '/policy/privacy/'
     | '/policy/service/'
   fileRoutesById: FileRoutesById
@@ -91,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DownloadIndexRoute: typeof DownloadIndexRoute
   InviteCodeIndexRoute: typeof InviteCodeIndexRoute
+  PolicyCsaeIndexRoute: typeof PolicyCsaeIndexRoute
   PolicyPrivacyIndexRoute: typeof PolicyPrivacyIndexRoute
   PolicyServiceIndexRoute: typeof PolicyServiceIndexRoute
 }
@@ -125,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PolicyPrivacyIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/policy/csae/': {
+      id: '/policy/csae/'
+      path: '/policy/csae'
+      fullPath: '/policy/csae'
+      preLoaderRoute: typeof PolicyCsaeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/invite/$code/': {
       id: '/invite/$code/'
       path: '/invite/$code'
@@ -139,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DownloadIndexRoute: DownloadIndexRoute,
   InviteCodeIndexRoute: InviteCodeIndexRoute,
+  PolicyCsaeIndexRoute: PolicyCsaeIndexRoute,
   PolicyPrivacyIndexRoute: PolicyPrivacyIndexRoute,
   PolicyServiceIndexRoute: PolicyServiceIndexRoute,
 }
