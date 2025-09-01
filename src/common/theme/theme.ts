@@ -6,10 +6,14 @@ declare module '@mui/material/styles' {
     interface PaletteOptions {
         icon: TypeIcon;
         button: TypeButton;
+        form: TypeForm;
+        border: TypeBorder;
     }
     interface Palette {
         icon: TypeIcon;
         button: TypeButton;
+        form: TypeForm;
+        border: TypeBorder;
     }
     interface TypeBackground {
         default: string;
@@ -32,6 +36,12 @@ declare module '@mui/material/styles' {
             default: string;
             disabled: string;
         };
+    }
+    interface TypeForm {
+        placeholder: string;
+    }
+    interface TypeBorder {
+        default: string;
     }
 }
 
@@ -58,6 +68,12 @@ export const light: PaletteOptions = {
             disabled: Palette.black,
         },
     },
+    form: {
+        placeholder: Palette.gray3,
+    },
+    border: {
+        default: Palette.gray2,
+    },
 };
 
 export const dark: PaletteOptions = {
@@ -82,5 +98,11 @@ export const dark: PaletteOptions = {
             default: Palette.black,
             disabled: Palette.black,
         },
+    },
+    form: {
+        placeholder: Palette.gray3,
+    },
+    border: {
+        default: Palette.gray2,
     },
 };

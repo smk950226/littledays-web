@@ -12,7 +12,7 @@ export default function Loading() {
                 px: Sizing.padding.horizontal,
             }}
         >
-            <SvgIcon icon={SvgIcons.logo} width={120} />
+            <SvgIcon icon={SvgIcons.logoVertical} width={120} />
         </Center>
     );
 }

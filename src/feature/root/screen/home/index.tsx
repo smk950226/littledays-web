@@ -11,7 +11,7 @@ import Headline1 from '@/common/component/layout/typography/headline1';
 import useI18n from '@/common/i18n/hook/use_i18n';
 import Subtitle3 from '@/common/component/layout/typography/subtitle3';
 import SubmitButton from '@/common/component/button/button/submit_button';
-import { goStore } from '@/common/helper/store.helper';
+import { goStore } from '@/common/helper/store';
 import Row from '@/common/component/layout/grid/row';
 import useTheme from '@/common/theme/hook/use_theme';
 import Caption1 from '@/common/component/layout/typography/caption1';
@@ -37,7 +37,7 @@ export default function Home() {
             }}
         >
             <SvgIcon
-                icon={SvgIcons.logo}
+                icon={SvgIcons.logoVertical}
                 width={200}
                 sx={{
                     filter: `drop-shadow(0px 0px 32px ${alpha(
@@ -50,7 +50,9 @@ export default function Home() {
                 {t('homeTitle')}
             </Headline1>
             <Subtitle3 textAlign={'center'} sx={{ mt: 10 }}>
-                {t('homeDescription')}
+                {t('homeDescription', {
+                    app: t('app'),
+                })}
             </Subtitle3>
             <SubmitButton
                 text={t('homeStartText')}
