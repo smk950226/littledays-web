@@ -16,13 +16,13 @@ import NetworkImage from '@/common/component/image/image/network_image';
 import Palette from '@/common/theme/palette';
 import { toUpperCaseFirst } from '@/common/helper/string';
 import { toLocalYYYYMMDD } from '@/common/helper/date';
-import { getBabyBirth } from '../../helper/get_baby_birth';
 import SubmitButton from '@/common/component/button/button/submit_button';
+import { getBabyBirth } from '@/feature/baby/helper/get_baby_birth';
 import { goStore } from '@/common/helper/store';
 import Information from './component/information';
 import Env from '@/common/constant/env';
 
-export default function InviteFamily() {
+export default function Invite() {
     const { baby } = useLoaderData({
         from: '/invite/$code/',
     });
@@ -61,9 +61,9 @@ export default function InviteFamily() {
             >
                 <Alert
                     icon={SvgIcons.babyAlert}
-                    title={t('inviteFamilyBabyNotExistTitle')}
+                    title={t('inviteBabyNotExistTitle')}
                     titleGap={4}
-                    caption={t('inviteFamilyBabyNotExistDescription')}
+                    caption={t('inviteBabyNotExistDescription')}
                     baseColor={false}
                 />
             </Center>
@@ -81,7 +81,7 @@ export default function InviteFamily() {
         >
             <SvgIcon icon={SvgIcons.logoHorizontal} height={24} />
             <Headline2 textAlign={'center'} sx={{ mt: 32 }}>
-                {t('inviteFamilyTitle', {
+                {t('inviteTitle', {
                     name: baby.name,
                     app: t('app'),
                 })}
@@ -91,7 +91,7 @@ export default function InviteFamily() {
                 color={theme.text.default}
                 sx={{ mt: 8 }}
             >
-                {t('inviteFamilyDescription', {
+                {t('inviteDescription', {
                     name: baby.name,
                     app: t('app'),
                 })}
@@ -131,7 +131,7 @@ export default function InviteFamily() {
                 />
             </Box>
             <SubmitButton
-                text={t('inviteFamilyJoinText')}
+                text={t('inviteJoinText')}
                 onClick={openApp}
                 sx={{ px: 56, mt: 78 }}
             />
