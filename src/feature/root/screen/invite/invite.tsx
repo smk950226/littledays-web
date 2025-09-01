@@ -35,10 +35,13 @@ export default function Invite() {
             goStore();
         } else {
             if (isIOS) {
-                window.location.href = `littledays://invite/${baby.code}`;
-                setTimeout(goStore, 500);
+                try {
+                    window.location.href = `littledays:///invite/${baby.code}`;
+                } catch {
+                    goStore();
+                }
             } else if (isAndroid) {
-                window.location.href = `intent://invite/${baby.code}#Intent;scheme=littledays;package=${import.meta.env[Env.store.android]};S.browser_fallback_url=${encodeURIComponent(
+                window.location.href = `intent:///invite/${baby.code}#Intent;scheme=littledays;package=${import.meta.env[Env.store.android]};S.browser_fallback_url=${encodeURIComponent(
                     `https://play.google.com/store/apps/details?id=${import.meta.env[Env.store.android]}`,
                 )};end`;
             }
