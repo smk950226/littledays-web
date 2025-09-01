@@ -1,6 +1,6 @@
 import { createRootRouteWithContext } from '@tanstack/react-router';
 
-import RootLayout from '../feature/root/layout';
+import RootLayout from '@/feature/root/layout';
 
 interface Context {}
 

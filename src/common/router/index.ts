@@ -1,9 +1,9 @@
 import { createRouter } from '@tanstack/react-router';
 
-import { routeTree } from '../../routeTree.gen';
-import Error from '../../feature/root/screen/error';
-import Loading from '../../feature/root/screen/loading';
-import NotFound from '../../feature/root/screen/not-found';
+import { routeTree } from '@/routeTree.gen';
+import Error from '@/feature/root/screen/error';
+import Loading from '@/feature/root/screen/loading';
+import NotFound from '@/feature/root/screen/not-found';
 
 const router = createRouter({
     routeTree,

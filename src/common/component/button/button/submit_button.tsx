@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { alpha } from '@mui/material/styles';
 import Button, { type ButtonProps } from '@mui/material/Button';
 
-import useTheme from '../../../theme/hook/use_theme';
+import useTheme from '@/common/theme/hook/use_theme';
 import Button1 from '../../layout/typography/button1';
 
 type Props = ButtonProps & {

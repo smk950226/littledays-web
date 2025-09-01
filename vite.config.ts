@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react-swc';
@@ -17,4 +18,9 @@ export default defineConfig({
             typescript: true,
         }),
     ],
+    resolve: {
+        alias: {
+            '@': resolve(__dirname, './src'),
+        },
+    },
 });

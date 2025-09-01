@@ -1,12 +1,12 @@
-import SvgIcons from '../../../asset/svg_icons';
-import useTheme from '../../../theme/hook/use_theme';
+import SvgIcons from '@/common/asset/svg_icons';
+import useTheme from '@/common/theme/hook/use_theme';
 import SvgIcon from '../../image/icon/svg_icon';
 import Center from '../grid/center';
-
-import type { MuiComponent } from '../../../data/type/component';
-import type { Asset } from '../../../asset/data/type/asset';
 import Subtitle2 from '../typography/subtitle2';
 import Body3 from '../typography/body3';
+
+import type { MuiComponent } from '@/common/data/type/component';
+import type { Asset } from '@/common/asset/data/type/asset';
 
 type Props = MuiComponent & {
     icon?: Asset;

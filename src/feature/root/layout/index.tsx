@@ -1,7 +1,7 @@
 import { Outlet } from '@tanstack/react-router';
 
-import useTheme from '../../../common/theme/hook/use_theme';
-import Sizing from '../../../common/theme/sizing';
+import useTheme from '@/common/theme/hook/use_theme';
+import Sizing from '@/common/theme/sizing';
 
 export default function RootLayout() {
     const { theme } = useTheme();

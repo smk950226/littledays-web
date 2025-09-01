@@ -1,7 +1,7 @@
-import Screen from '../../../../common/component/layout/screen/screen';
-import Body2 from '../../../../common/component/layout/typography/body2';
-import Headline1 from '../../../../common/component/layout/typography/headline1';
-import Subtitle1 from '../../../../common/component/layout/typography/subtitle1';
+import Screen from '@/common/component/layout/screen/screen';
+import Body2 from '@/common/component/layout/typography/body2';
+import Headline1 from '@/common/component/layout/typography/headline1';
+import Subtitle1 from '@/common/component/layout/typography/subtitle1';
 import Gap from '../../component/gap';
 import Indent from '../../component/indent';
 

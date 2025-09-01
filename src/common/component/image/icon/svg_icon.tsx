@@ -4,13 +4,13 @@ import MuiSvgIcon from '@mui/material/SvgIcon';
 import {
     calculatetHeight,
     calculateWidth,
-} from '../../../asset/helper/calculate_size';
-import useTheme from '../../../theme/hook/use_theme';
-import Sizing from '../../../theme/sizing';
+} from '@/common/asset/helper/calculate_size';
+import useTheme from '@/common/theme/hook/use_theme';
+import Sizing from '@/common/theme/sizing';
 
-import type { MuiComponent } from '../../../data/type/component';
-import type { Asset } from '../../../asset/data/type/asset';
-import type { Size } from '../../../data/type/size';
+import type { MuiComponent } from '@/common/data/type/component';
+import type { Asset } from '@/common/asset/data/type/asset';
+import type { Size } from '@/common/data/type/size';
 
 type Props = MuiComponent & {
     icon: Asset;

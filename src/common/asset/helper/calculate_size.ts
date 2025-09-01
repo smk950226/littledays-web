@@ -1,4 +1,4 @@
-import type { Size } from '../../data/type/size';
+import type { Size } from '@/common/data/type/size';
 
 export function calculateWidth(size: Size, height: number): number {
     return (size.width * height) / size.height;

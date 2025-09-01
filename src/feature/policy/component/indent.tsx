@@ -1,7 +1,7 @@
-import Row from '../../../common/component/layout/grid/row';
-import Body2 from '../../../common/component/layout/typography/body2';
+import Row from '@/common/component/layout/grid/row';
+import Body2 from '@/common/component/layout/typography/body2';
 
-import type { Children } from '../../../common/data/type/component';
+import type { Children } from '@/common/data/type/component';
 
 type Props = Children & {
     prefix?: string;

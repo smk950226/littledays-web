@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import Box, { type BoxProps } from '@mui/material/Box';
 
-import Sizing from '../../../theme/sizing';
+import Sizing from '@/common/theme/sizing';
 
 const Screen = forwardRef<HTMLDivElement, BoxProps>(
     ({ sx, children, ...props }, ref) => {
