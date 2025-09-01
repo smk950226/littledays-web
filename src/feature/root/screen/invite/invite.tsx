@@ -21,6 +21,8 @@ import { getBabyBirth } from '@/feature/baby/helper/get_baby_birth';
 import { goStore } from '@/common/helper/store';
 import Information from './component/information';
 import Env from '@/common/constant/env';
+import Caption1 from '@/common/component/layout/typography/caption1';
+import Pressable from '@/common/component/button/pressable/pressable';
 
 export default function Invite() {
     const { baby } = useLoaderData({
@@ -35,11 +37,7 @@ export default function Invite() {
             goStore();
         } else {
             if (isIOS) {
-                try {
-                    window.location.href = `littledays:///invite/${baby.code}`;
-                } catch {
-                    goStore();
-                }
+                window.location.href = `littledays:///invite/${baby.code}`;
             } else if (isAndroid) {
                 window.location.href = `intent:///invite/${baby.code}#Intent;scheme=littledays;package=${import.meta.env[Env.store.android]};S.browser_fallback_url=${encodeURIComponent(
                     `https://play.google.com/store/apps/details?id=${import.meta.env[Env.store.android]}`,
@@ -133,6 +131,18 @@ export default function Invite() {
                 onClick={openApp}
                 sx={{ px: 56, mt: 78 }}
             />
+            <Pressable onClick={goStore} sx={{ mt: 12 }}>
+                <Caption1
+                    textAlign={'center'}
+                    color={theme.text.caption}
+                    sx={{
+                        textDecorationColor: theme.text.caption,
+                        textDecorationLine: 'underline',
+                    }}
+                >
+                    {t('inviteGoStoreText')}
+                </Caption1>
+            </Pressable>
         </Center>
     );
 }
