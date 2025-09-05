@@ -7,7 +7,6 @@ import SvgIcon from '@/common/component/image/icon/svg_icon';
 import Center from '@/common/component/layout/grid/center';
 import Palette from '@/common/theme/palette';
 import Sizing from '@/common/theme/sizing';
-import Headline1 from '@/common/component/layout/typography/headline1';
 import useI18n from '@/common/i18n/hook/use_i18n';
 import Subtitle3 from '@/common/component/layout/typography/subtitle3';
 import SubmitButton from '@/common/component/button/button/submit_button';
@@ -32,8 +31,10 @@ export default function Home() {
         <Center
             sx={{
                 minHeight: '100dvh',
+                maxWidth: 400,
                 py: Sizing.padding.vertical,
                 px: Sizing.padding.horizontal,
+                mx: 'auto',
             }}
         >
             <SvgIcon
@@ -46,10 +47,7 @@ export default function Home() {
                     )})`,
                 }}
             />
-            <Headline1 textAlign={'center'} sx={{ mt: 42 }}>
-                {t('homeTitle')}
-            </Headline1>
-            <Subtitle3 textAlign={'center'} sx={{ mt: 10 }}>
+            <Subtitle3 textAlign={'center'} sx={{ mt: 42 }}>
                 {t('homeDescription', {
                     app: t('app'),
                 })}
