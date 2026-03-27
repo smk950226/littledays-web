@@ -89,9 +89,6 @@ export default function HeroSection() {
                 간직하세요
             </Box>
 
-            <Box component="p" sx={{ fontSize: '14px', fontWeight: 400, letterSpacing: '.08em', color: C.textMuted, mb: '20px', animation: 'fu .5s .14s ease both' }}>
-                지나고 나면 다시 못 오는 순간들을, 선명하게.
-            </Box>
 
             {/* Pain → Solution */}
             <Box sx={{
