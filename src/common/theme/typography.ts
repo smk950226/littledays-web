@@ -20,7 +20,7 @@ export default abstract class Typography {
         fontSize: 26,
         fontWeight: '600',
         lineHeight: 34 / 26,
-        letterSpacing: 1.01,
+        letterSpacing: 26 * 0.01,
     };
 
     static headline2: TextStyle = {
@@ -28,7 +28,7 @@ export default abstract class Typography {
         fontSize: 22,
         fontWeight: '600',
         lineHeight: 30 / 22,
-        letterSpacing: 1.01,
+        letterSpacing: 22 * 0.01,
     };
 
     static subtitle1: TextStyle = {
@@ -36,7 +36,7 @@ export default abstract class Typography {
         fontSize: 18,
         fontWeight: '600',
         lineHeight: 24 / 18,
-        letterSpacing: 1.01,
+        letterSpacing: 18 * 0.01,
     };
 
     static subtitle2: TextStyle = {
@@ -44,7 +44,7 @@ export default abstract class Typography {
         fontSize: 16,
         fontWeight: '600',
         lineHeight: 22 / 16,
-        letterSpacing: 1.005,
+        letterSpacing: 16 * 0.005,
     };
 
     static subtitle3: TextStyle = {
@@ -52,7 +52,7 @@ export default abstract class Typography {
         fontSize: 14,
         fontWeight: '600',
         lineHeight: 20 / 14,
-        letterSpacing: 1.005,
+        letterSpacing: 14 * 0.005,
     };
 
     static body1: TextStyle = {
@@ -60,7 +60,7 @@ export default abstract class Typography {
         fontSize: 16,
         fontWeight: '500',
         lineHeight: 22 / 16,
-        letterSpacing: 1.005,
+        letterSpacing: 16 * 0.005,
     };
 
     static body2: TextStyle = {
@@ -68,7 +68,7 @@ export default abstract class Typography {
         fontSize: 14,
         fontWeight: '500',
         lineHeight: 18 / 14,
-        letterSpacing: 1.002,
+        letterSpacing: 14 * 0.002,
     };
 
     static body3: TextStyle = {
@@ -76,7 +76,7 @@ export default abstract class Typography {
         fontSize: 12,
         fontWeight: '400',
         lineHeight: 16 / 12,
-        letterSpacing: 1.0015,
+        letterSpacing: 12 * 0.0015,
     };
 
     static caption1: TextStyle = {
@@ -84,7 +84,7 @@ export default abstract class Typography {
         fontSize: 12,
         fontWeight: '500',
         lineHeight: 16 / 12,
-        letterSpacing: 1.0015,
+        letterSpacing: 12 * 0.0015,
     };
 
     static caption2: TextStyle = {
@@ -92,7 +92,7 @@ export default abstract class Typography {
         fontSize: 10,
         fontWeight: '500',
         lineHeight: 15 / 10,
-        letterSpacing: 0.997,
+        letterSpacing: 10 * -0.003,
     };
 
     static caption3: TextStyle = {
@@ -100,7 +100,7 @@ export default abstract class Typography {
         fontSize: 8,
         fontWeight: '500',
         lineHeight: 11 / 8,
-        letterSpacing: 0.997,
+        letterSpacing: 8 * -0.003,
     };
 
     static button1: TextStyle = {
@@ -108,7 +108,7 @@ export default abstract class Typography {
         fontSize: 14,
         fontWeight: '600',
         lineHeight: 18 / 14,
-        letterSpacing: 1.01,
+        letterSpacing: 14 * 0.01,
     };
 
     static button2: TextStyle = {
@@ -116,7 +116,7 @@ export default abstract class Typography {
         fontSize: 12,
         fontWeight: '600',
         lineHeight: 16 / 12,
-        letterSpacing: 1.005,
+        letterSpacing: 12 * 0.005,
     };
 
     static button3: TextStyle = {
@@ -124,6 +124,6 @@ export default abstract class Typography {
         fontSize: 10,
         fontWeight: '600',
         lineHeight: 15 / 10,
-        letterSpacing: 1.9975,
+        letterSpacing: 10 * -0.0025,
     };
 }

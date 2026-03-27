@@ -11,11 +11,11 @@ export default function RootLayout() {
             <div
                 style={{
                     backgroundColor: theme.background.default,
+                    minWidth: Sizing.layout.width.min,
                 }}
             >
                 <main
                     style={{
-                        minWidth: Sizing.layout.width.min,
                         maxWidth: Sizing.layout.width.max,
                         minHeight: '100dvh',
                         margin: '0 auto',
