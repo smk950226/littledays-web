@@ -19,9 +19,15 @@ export default function TimelineSection() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const stackRef = useRef<HTMLImageElement>(null);
     const [stackStep, setStackStep] = useState(0);
+    const [maxImgHeight, setMaxImgHeight] = useState(0);
+    const handleImgLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+        const h = (e.target as HTMLImageElement).offsetHeight;
+        setMaxImgHeight(prev => Math.max(prev, h));
+    };
 
     useEffect(() => {
         const handleScroll = () => {
+            if (window.innerWidth < 1024) return;
             const el = sectionRef.current;
             if (!el) return;
             const rect = el.getBoundingClientRect();
@@ -39,6 +45,37 @@ export default function TimelineSection() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        const el = sectionRef.current;
+        if (!el) return;
+        let timeoutId: ReturnType<typeof setTimeout>;
+        let playing = false;
+        let idx = 0;
+        let hasPlayed = false;
+        const advance = () => {
+            if (!playing) return;
+            idx = idx + 1;
+            if (idx >= IMAGES.length) return;
+            setActiveIdx(idx);
+            timeoutId = setTimeout(advance, 1200);
+        };
+        const obs = new IntersectionObserver(([entry]) => {
+            if (window.innerWidth >= 1024) return;
+            if (entry.isIntersecting && !hasPlayed) {
+                hasPlayed = true;
+                playing = true;
+                idx = 0;
+                setActiveIdx(0);
+                timeoutId = setTimeout(advance, 1200);
+            } else {
+                playing = false;
+                clearTimeout(timeoutId);
+            }
+        }, { threshold: 0.4 });
+        obs.observe(el);
+        return () => { obs.disconnect(); playing = false; clearTimeout(timeoutId); };
+    }, []);
+
     const totalHeight = `calc(100vh + ${IMAGES.length * STEP_VH}vh)`;
 
     return (
@@ -46,19 +83,20 @@ export default function TimelineSection() {
             ref={sectionRef}
             component="section"
             id="timeline"
-            sx={{ height: totalHeight, background: '#fff', position: 'relative' }}
+            sx={{ height: { mobile: 'auto', laptop: totalHeight }, background: '#fff', position: 'relative', display: { mobile: 'flex', laptop: 'block' }, alignItems: { mobile: 'flex-start', laptop: 'unset' }, minHeight: { mobile: '100vh', tablet: 'unset', laptop: 'unset' } }}
         >
             {/* Sticky panel */}
             <Box sx={{
-                position: 'sticky', top: 0, height: '100vh',
+                position: { mobile: 'relative', laptop: 'sticky' }, top: 0, width: '100%', height: { mobile: 'auto', laptop: '100vh' },
                 display: 'flex', alignItems: 'flex-start',
-                px: '5%', overflow: 'hidden',
+                px: '5%', overflow: { mobile: 'visible', laptop: 'hidden' },
+                pt: { mobile: '80px', laptop: 0 }, pb: { mobile: '90px', laptop: 0 },
             }}>
-                <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: 'row', gap: '6rem', alignItems: 'flex-start', pt: '210px' }}>
+                <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: 'flex-start', pt: { mobile: 0, laptop: '210px' } }}>
 
                     {/* Left: sticky text */}
-                    <Box sx={{ width: '500px', flexShrink: 0, pt: '50px' }}>
-                        <Eyebrow sx={{ fontSize: '18px', fontWeight: 600, mb: '12px', color: '#121212' }}>
+                    <Box sx={{ width: { mobile: '100%', tablet: '320px', laptop: '500px' }, flexShrink: 0, pt: { mobile: 0, laptop: '50px' } }}>
+                        <Eyebrow sx={{ fontSize: '16px', fontWeight: 600, mb: '12px', color: '#121212' }}>
                             <Box component="svg" sx={{ width: '18px', height: '18px', flexShrink: 0 }} viewBox="225 147 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M242.561 161.245C242.561 163.316 240.882 164.995 238.811 164.995L229.189 164.995C227.118 164.995 225.439 163.316 225.439 161.245L225.439 150.755C225.439 148.684 227.118 147.005 229.189 147.005L238.811 147.005C240.882 147.005 242.561 148.684 242.561 150.755L242.561 161.245ZM241.061 150.755C241.061 149.513 240.054 148.505 238.811 148.505L229.189 148.505C227.946 148.505 226.939 149.513 226.939 150.755L226.939 158.509C226.939 159.752 227.946 160.759 229.189 160.759L238.811 160.759C240.054 160.759 241.061 159.752 241.061 158.509L241.061 150.755ZM241.042 161.522C240.419 161.985 239.647 162.259 238.811 162.259L229.189 162.259C228.353 162.259 227.582 161.984 226.958 161.522C227.095 162.634 228.04 163.495 229.189 163.495L238.811 163.495C239.96 163.495 240.906 162.634 241.042 161.522Z" fill="currentColor"/>
                                 <path d="M236.256 150.009C236.67 150.009 237.006 150.345 237.006 150.759C237.006 151.173 236.67 151.509 236.256 151.509C236.254 151.509 236.252 151.508 236.25 151.508V151.51H231.75V151.508C231.339 151.505 231.006 151.171 231.006 150.759C231.006 150.345 231.342 150.009 231.756 150.009C231.762 150.009 231.769 150.01 231.775 150.01H236.236C236.243 150.01 236.249 150.009 236.256 150.009Z" fill="currentColor"/>
@@ -67,10 +105,10 @@ export default function TimelineSection() {
                             </Box>
                             날짜별 자동 정렬
                         </Eyebrow>
-                        <SecTitle sx={{ mb: '32px', fontSize: '46px', fontWeight: 600, lineHeight: '58px', color: '#121212' }}>
+                        <SecTitle sx={{ mb: '32px', fontSize: { mobile: '32px', tablet: '36px', laptop: '46px' }, fontWeight: 600, lineHeight: { mobile: '42px', tablet: '48px', laptop: '58px' }, color: '#121212' }}>
                             사진을 업로드하면,<br />알아서 정리돼요
                         </SecTitle>
-                        <SecDesc sx={{ fontSize: '16px', lineHeight: '26px', color: '#4A4A4A' }}>
+                        <SecDesc sx={{ fontSize: { mobile: '14px', laptop: '16px' }, lineHeight: { mobile: '22px', laptop: '26px' }, color: '#4A4A4A' }}>
                             사진 촬영 날짜를 자동으로 읽어 타임라인에 배치돼요.<br />
                             아이가 태어난 날부터 오늘까지,<br />
                             성장의 흐름을 한눈에 확인할 수있어요!
@@ -78,7 +116,7 @@ export default function TimelineSection() {
                     </Box>
 
                     {/* Right: scroll-driven images */}
-                    <Box sx={{ flex: 1, minWidth: 0, display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', height: 'calc(100vh - 200px)', mt: '-40px' }}>
+                    <Box sx={{ flex: 1, minWidth: 0, width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', height: { laptop: 'calc(100vh - 200px)' }, minHeight: { mobile: maxImgHeight > 0 ? `${maxImgHeight}px` : '90vw', laptop: 'unset' }, mt: { mobile: 0, laptop: '-40px' } }}>
 
                         {/* Images 01-06: single swap */}
                         {IMAGES.slice(0, 6).map((img, i) => (
@@ -87,10 +125,11 @@ export default function TimelineSection() {
                                 component="img"
                                 src={img}
                                 alt={`upload img ${i + 1}`}
+                                onLoad={handleImgLoad}
                                 sx={{
                                     position: 'absolute',
                                     top: 0,
-                                    width: '410px',
+                                    width: { mobile: '240px', tablet: '60%', laptop: '410px' },
                                     height: 'auto',
                                     borderRadius: '20px',
                                     opacity: activeIdx === i ? 1 : 0,
@@ -105,9 +144,9 @@ export default function TimelineSection() {
                         {IMAGES.slice(6).map((img, j) => {
                             const i = j + 6;
                             const isVisible = activeIdx >= i;
-                            const step = stackStep > 0 ? stackStep + 16 : 600;
-                            // current card: translateY=0, older cards pushed down, incoming from above
-                            const translateY = isVisible ? (activeIdx - i) * step : -step;
+                            const step = stackStep > 0 ? stackStep + 6 : 600;
+                            const translateYLaptop = isVisible ? (activeIdx - i) * step : -step;
+                            const translateYMobile = isVisible ? (activeIdx - i) * step : step;
                             return (
                                 <Box
                                     key={i}
@@ -119,12 +158,12 @@ export default function TimelineSection() {
                                     sx={{
                                         position: 'absolute',
                                         top: 0,
-                                        width: '410px',
+                                        width: { mobile: '240px', tablet: '60%', laptop: '410px' },
                                         height: 'auto',
                                         borderRadius: '20px',
                                         boxShadow: '0 24px 64px rgba(0,0,0,.12)',
                                         opacity: isVisible ? 1 : 0,
-                                        transform: `translateY(${translateY}px)`,
+                                        transform: { mobile: `translateY(${translateYMobile}px)`, laptop: `translateY(${translateYLaptop}px)` },
                                         transition: 'opacity 0.5s ease, transform 0.5s ease',
                                         willChange: 'opacity, transform',
                                         pointerEvents: 'none',

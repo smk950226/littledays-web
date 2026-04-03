@@ -43,40 +43,40 @@ export default function SafetySection() {
     return (
         <Box
             component="section"
-            sx={{ pt: '210px', pb: '210px', px: '5%', background: '#fff' }}
+            sx={{ pt: { mobile: '120px', tablet: '140px', laptop: '210px' }, pb: { mobile: '120px', tablet: '140px', laptop: '210px' }, px: '5%', background: '#fff' }}
         >
             <Box sx={{ maxWidth: '1140px', mx: 'auto' }}>
                 <Box
                     component="h2"
                     sx={{
-                        fontSize: '46px', fontWeight: 700, lineHeight: '58px',
+                        fontSize: { mobile: '32px', tablet: '36px', laptop: '46px' }, fontWeight: 700, lineHeight: { mobile: '42px', tablet: '48px', laptop: '58px' },
                         letterSpacing: '-.5px', color: '#121212',
-                        mb: '90px', fontFamily: font, maxWidth: '520px',
+                        mb: { mobile: '80px', tablet: '60px', laptop: '90px' }, fontFamily: font, maxWidth: '520px',
                     }}
                 >
                     아기를 위해 설계된<br />가장 안전한 공간
                 </Box>
 
-                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '48px' }}>
+                <Box sx={{ display: 'grid', gridTemplateColumns: { mobile: '1fr', tablet: 'repeat(2, 1fr)', laptop: 'repeat(3, 1fr)' }, gap: { mobile: '60px', tablet: '40px', laptop: '48px' } }}>
                     {CARDS.map(({ title, desc, icon }) => (
                         <Box key={title}>
                             <Box sx={{
                                 width: '56px', height: '56px', borderRadius: '16px',
                                 background: '#EBF7FF',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                mb: '48px',
+                                mb: { mobile: '24px', tablet: '32px', laptop: '48px' },
                             }}>
                                 {icon}
                             </Box>
                             <Box
                                 component="h3"
-                                sx={{ fontSize: '28px', fontWeight: 700, color: '#121212', mb: '12px', fontFamily: font }}
+                                sx={{ fontSize: { mobile: '22px', tablet: '24px', laptop: '28px' }, fontWeight: 700, color: '#121212', mb: '12px', fontFamily: font }}
                             >
                                 {title}
                             </Box>
                             <Box
                                 component="p"
-                                sx={{ fontSize: '16px', fontWeight: 400, lineHeight: '26px', color: '#4A4A4A', whiteSpace: 'pre-line', m: 0 }}
+                                sx={{ fontSize: { mobile: '14px', tablet: '16px' }, fontWeight: 400, lineHeight: { mobile: '22px', tablet: '26px' }, color: '#4A4A4A', whiteSpace: 'pre-line', m: 0 }}
                             >
                                 {desc}
                             </Box>

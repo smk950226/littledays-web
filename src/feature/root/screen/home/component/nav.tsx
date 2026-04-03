@@ -30,20 +30,6 @@ export default function Nav() {
                 <Box component="img" src={logo} alt="Little Days" sx={{ height: '28px', width: 'auto' }} />
             </Box>
             <Box component="ul" sx={{ display: 'flex', alignItems: 'center', gap: '1.8rem', listStyle: 'none', m: 0, p: 0 }}>
-                {[
-                    { href: '#features', label: '기능' },
-                    { href: '#private', label: '보안' },
-                    { href: '#howto', label: '사용법' },
-                ].map(({ href, label }) => (
-                    <Box key={href} component="li" sx={{ display: { xs: 'none', md: 'block' } }}>
-                        <Box
-                            component="a" href={href}
-                            sx={{ fontSize: '14px', fontWeight: 500, letterSpacing: '.028px', color: C.textSec, textDecoration: 'none', transition: 'color .15s', '&:hover': { color: C.text } }}
-                        >
-                            {label}
-                        </Box>
-                    </Box>
-                ))}
                 <Box component="li">
                     <Box
                         component="button" onClick={goStore}
@@ -56,7 +42,7 @@ export default function Nav() {
                             '&:hover': { background: C.primaryDark, transform: 'translateY(-1px)' },
                         }}
                     >
-                        무료로 시작하기 →
+                        앱 다운로드
                     </Box>
                 </Box>
             </Box>
