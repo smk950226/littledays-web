@@ -31,7 +31,7 @@ const CARDS = [
 export default function PersonaSection() {
     return (
         <Box component="section" id="persona" sx={{ py: '7rem', px: '5%', background: C.bg }}>
-            <Box sx={{ maxWidth: '1100px', mx: 'auto', textAlign: 'center' }}>
+            <Box sx={{ maxWidth: '1200px', mx: 'auto', textAlign: 'center' }}>
                 <Reveal><Eyebrow>이런 분들께 딱 맞아요</Eyebrow></Reveal>
                 <Reveal><SecTitle sx={{ textAlign: 'center' }}>혹시 이런 경험, 있으신가요?</SecTitle></Reveal>
                 <Reveal><SecDesc sx={{ mx: 'auto', textAlign: 'center' }}>많은 부모님들이 같은 불편함을 겪고 있어요. Little Days가 해결해드립니다.</SecDesc></Reveal>

@@ -27,7 +27,7 @@ function StorageBar() {
 export default function FreeSection() {
     return (
         <Box component="section" sx={{ py: '7rem', px: '5%', background: C.bgSub }}>
-            <Box sx={{ maxWidth: '1100px', mx: 'auto', display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: '6rem', alignItems: 'center' }}>
+            <Box sx={{ maxWidth: '1200px', mx: 'auto', display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: '6rem', alignItems: 'center' }}>
                 <Reveal>
                     <Box sx={{ background: C.bg, border: `1px solid ${C.border}`, borderRadius: '18px', p: '22px', boxShadow: `0 4px 20px ${alpha(C.primary, 0.08)}` }}>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: '14px' }}>

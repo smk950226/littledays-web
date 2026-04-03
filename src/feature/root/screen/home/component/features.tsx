@@ -24,11 +24,11 @@ const GALLERY_ITEMS = [
 export default function FeaturesSection() {
     return (
         <Box component="section" id="features" sx={{ py: '7rem', px: '5%', background: C.bg }}>
-            <Box sx={{ maxWidth: '1100px', mx: 'auto', display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: '6rem', alignItems: 'center' }}>
+            <Box sx={{ maxWidth: '1200px', mx: 'auto', display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: '6rem', alignItems: 'center' }}>
                 <Reveal>
                     <Eyebrow>주요 기능</Eyebrow>
                     <SecTitle>아이의 성장을 가장<br />소중하게 담는 방법</SecTitle>
-                    <SecDesc>Little Days는 아이의 모든 순간이 사라지지 않도록, 원본 그대로 안전하게 보관합니다.</SecDesc>
+                    <SecDesc>Little Days는 아이의 모든 순간이 사라지지 않도록,<br />원본 그대로 안전하게 보관합니다.</SecDesc>
                     <Box sx={{ mt: '32px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
                         {FEATURE_LIST.map(({ icon, title, desc }) => (
                             <Box key={title} sx={{ display: 'flex', gap: '14px', alignItems: 'flex-start', p: '14px 16px', borderRadius: '12px', transition: 'background .15s', '&:hover': { background: C.bgSub } }}>

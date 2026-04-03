@@ -1,50 +1,134 @@
 import Box from '@mui/material/Box';
-import { alpha } from '@mui/material/styles';
-import { C } from '../constants';
-import Reveal from './reveal';
-import { Eyebrow, SecTitle, SecDesc } from './shared';
+import { font } from '../constants';
+import iosIcon from '@/common/asset/asset/img/ios.png';
+import andIcon from '@/common/asset/asset/img/and.png';
+
+const AppStoreIcon = () => (
+    <Box component="img" src={iosIcon} sx={{ width: '24px', height: '24px' }} />
+);
+
+const GooglePlayIcon = () => (
+    <Box component="img" src={andIcon} sx={{ width: '24px', height: '24px' }} />
+);
 
 const REVIEWS = [
-    { gp: false, text: '"친가·외가에 똑같은 사진을 따로따로 보내는 게 너무 번거로웠는데, 이제는 한 번만 올리면 돼요. 양가 어머님 모두 엄청 좋아하세요!"', avBg: '#76D1FF', avColor: '#0070A8', avLabel: '김', name: '김지수님', role: '15개월 아기 엄마 · 서울', delay: 0 },
-    { gp: true, gpLabel: '👵 조부모님 후기', text: '"카톡으로 사진 요청하기 늘 눈치 보였는데, 이제 앱 열면 손녀 사진이 항상 있어요. 매일 들어가서 좋아요 누르고 댓글 달아요. 너무 행복해요."', avBg: '#5BC8A8', avColor: 'white', avLabel: '최', name: '최순자님', role: '손녀 바라기 친할머니 · 대전', delay: 0.1 },
-    { gp: false, text: '"지방에 계신 양가 부모님 모두 앱으로 손주 사진 보시는 걸 너무 좋아하세요. 특히 친정어머니가 댓글을 엄청 다세요 😂 가족이 더 가까워진 것 같아요."', avBg: '#A890D8', avColor: 'white', avLabel: '박', name: '박민준님', role: '8개월 아기 아빠 · 부산', delay: 0.2 },
-    { gp: true, gpLabel: '👴 조부모님 후기', text: '"아들한테 사진 보내달라고 하면 바쁜데 미안하잖아요. 근데 이건 내가 언제든 볼 수 있으니까. 손자 웃는 사진 보고 잠을 못 잤네요, 너무 이뻐서."', avBg: '#F5A882', avColor: 'white', avLabel: '강', name: '강병철님', role: '손자 자랑 외할아버지 · 전주', delay: 0 },
-    { gp: false, text: '"카카오톡으로 사진 보내면 화질이 너무 낮아지는데, 여기는 원본 그대로라서 나중에 인화해서 드릴 수 있어요. 시어머니께서 엄청 좋아하셨어요."', avBg: '#3EB8F5', avColor: 'white', avLabel: '이', name: '이수연님', role: '22개월 아기 엄마 · 인천', delay: 0.1 },
-    { gp: true, gpLabel: '👵 조부모님 후기', text: '"며느리가 설치해줬는데 어렵지 않아요. 손주 사진 올라오면 알림 오고, 댓글도 달 수 있고. 멀리 살아도 곁에 있는 것 같아서 눈물 날 때도 있어요."', avBg: '#A0C8A0', avColor: 'white', avLabel: '이', name: '이정자님', role: '손자 사랑 외할머니 · 광주', delay: 0.2 },
+    {
+        text: '친가·외가에 사진을 따로따로 보내는 게 너무 번거로웠는데, 이제는 한 번만 올리면 돼요. 양가 어머님 모두 엄청 좋아하세요!',
+        store: 'appstore' as const,
+    },
+    {
+        text: '카톡으로 사진 요청하기 늘 눈치 보였는데, 이제 앱 열면 손녀 사진이 항상 있어요. 매일 들어가서 좋아요 누르고 댓글 달아요. 너무 행복해요.',
+        store: 'google' as const,
+    },
+    {
+        text: '지방에 계신 양가 부모님 모두 앱으로 손주 사진 보시는 걸 너무 좋아하세요. 가족이 더 가까워진 것 같아요.',
+        store: 'appstore' as const,
+    },
+    {
+        text: '아들한테 사진 보내달라고 하면 바쁜데 미안하잖아요. 근데 이건 내가 언제든 볼 수 있으니까. 손자 웃는 사진 보고 잠을 못 잤네요.',
+        store: 'google' as const,
+    },
+    {
+        text: '앱 설치하고 나서 할머니가 매일 아침 손주 사진 보신대요. 전화도 부쩍 늘었어요. 가족이 진짜 더 가까워진 느낌이에요.',
+        store: 'appstore' as const,
+    },
+    {
+        text: '사진 올리면 바로 알림 오는 게 너무 좋아요. 멀리 살아도 아이가 매일 옆에 있는 것 같아서 행복해요.',
+        store: 'google' as const,
+    },
 ];
+
+function ReviewCard({ text, store }: { text: string; store: 'appstore' | 'google' }) {
+    return (
+        <Box sx={{
+            width: '320px',
+            flexShrink: 0,
+            background: '#fff',
+            borderRadius: '20px',
+            boxShadow: '0 2px 16px rgba(0,0,0,0.06)',
+            p: '28px 24px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            minHeight: '220px',
+        }}>
+            <Box
+                component="p"
+                sx={{ fontSize: '16px', fontWeight: 500, lineHeight: '26px', color: '#121212', m: 0 }}
+            >
+                {text}
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '6px', mt: '24px' }}>
+                <Box sx={{ flexShrink: 0 }}>
+                    {store === 'appstore' ? <AppStoreIcon /> : <GooglePlayIcon />}
+                </Box>
+                <Box sx={{ fontSize: '14px', fontWeight: 600, color: '#121212' }}>
+                    {store === 'appstore' ? '앱스토어 리뷰' : '구글 스토어 리뷰'}
+                </Box>
+            </Box>
+        </Box>
+    );
+}
+
+const CARD_WIDTH = 320;
+const GAP = 20;
+const TRACK_WIDTH = REVIEWS.length * (CARD_WIDTH + GAP);
 
 export default function TestimonialsSection() {
     return (
-        <Box component="section" sx={{ py: '7rem', px: '5%', background: C.bg }}>
-            <Box sx={{ maxWidth: '1100px', mx: 'auto', textAlign: 'center' }}>
-                <Reveal><Eyebrow>실제 가족들의 이야기</Eyebrow></Reveal>
-                <Reveal><SecTitle sx={{ textAlign: 'center' }}>부모님도, 조부모님도<br />모두 좋아해요</SecTitle></Reveal>
-                <Reveal><SecDesc sx={{ mx: 'auto', textAlign: 'center' }}>아이를 키우는 부모님부터, 멀리서 손주를 그리워하는 조부모님까지. Little Days가 가족을 연결합니다.</SecDesc></Reveal>
-                <Box sx={{ mt: '40px', display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: '14px' }}>
-                    {REVIEWS.map(({ gp, gpLabel, text, avBg, avColor, avLabel, name, role, delay }) => (
-                        <Reveal key={name} delay={delay}>
-                            <Box sx={{
-                                background: gp ? C.bgTint : C.bgSub,
-                                border: `1px solid ${gp ? C.borderStrong : C.borderNeutral}`,
-                                borderRadius: '18px', p: '22px 20px', textAlign: 'left', height: '100%',
-                                transition: 'transform .22s, box-shadow .22s',
-                                '&:hover': { transform: 'translateY(-4px)', boxShadow: `0 12px 32px ${alpha(C.primary, 0.1)}` },
-                            }}>
-                                {gp && <Box sx={{ display: 'inline-block', background: alpha(C.primary, 0.1), border: `1px solid ${C.border}`, color: C.textBrand, fontSize: '12px', fontWeight: 500, px: '9px', py: '3px', borderRadius: '100px', mb: '8px' }}>{gpLabel}</Box>}
-                                <Box sx={{ color: C.primaryDarker, fontSize: '13px', letterSpacing: '2px', mb: '10px' }}>★★★★★</Box>
-                                <Box component="p" sx={{ fontSize: '14px', fontWeight: 500, letterSpacing: '.028px', color: C.textSec, lineHeight: 1.7, mb: '16px', fontStyle: 'italic' }}>{text}</Box>
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                    <Box sx={{ width: '34px', height: '34px', borderRadius: '50%', background: avBg, color: avColor, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 700, flexShrink: 0 }}>{avLabel}</Box>
-                                    <Box>
-                                        <Box sx={{ fontSize: '14px', fontWeight: 600, letterSpacing: '.028px', color: C.text }}>{name}</Box>
-                                        <Box sx={{ fontSize: '12px', fontWeight: 500, letterSpacing: '.018px', color: C.textMuted }}>{role}</Box>
-                                    </Box>
-                                </Box>
+        <Box component="section" sx={{ py: '210px', background: 'linear-gradient(to bottom, #F9F9F9, #ffffff)', overflow: 'hidden' }}>
+
+            {/* Title */}
+            <Box sx={{ textAlign: 'center', mb: '90px', px: '5%' }}>
+                <Box
+                    component="h2"
+                    sx={{ fontSize: '46px', fontWeight: 700, lineHeight: '58px', letterSpacing: '-.5px', color: '#121212', mb: '20px', fontFamily: font }}
+                >
+                    가족 모두가 좋아해요
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+                    <Box sx={{ fontSize: '18px', fontWeight: 500, color: '#4A4A4A' }}>앱스토어 평점 4.9점</Box>
+                    <Box sx={{ display: 'flex', gap: '4px' }}>
+                        {[1,2,3,4,5].map(i => (
+                            <Box key={i} component="svg" sx={{ width: '18px', height: '18px' }} viewBox="445 360 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M452.272 360.364C453.043 359.039 454.957 359.039 455.728 360.364L457.219 362.924C457.502 363.409 457.975 363.753 458.524 363.872L461.42 364.499C462.918 364.823 463.509 366.643 462.488 367.786L460.514 369.995C460.14 370.414 459.959 370.971 460.015 371.529L460.314 374.477C460.468 376.002 458.92 377.127 457.517 376.509L454.806 375.314C454.293 375.087 453.707 375.087 453.193 375.314L450.482 376.509C449.08 377.127 447.532 376.002 447.686 374.477L447.985 371.529C448.041 370.971 447.86 370.414 447.486 369.995L445.512 367.786C444.491 366.643 445.082 364.823 446.58 364.499L449.476 363.872C450.025 363.753 450.498 363.409 450.781 362.924L452.272 360.364Z" fill="#FFCC00"/>
                             </Box>
-                        </Reveal>
+                        ))}
+                    </Box>
+                </Box>
+            </Box>
+
+            {/* Rolling cards */}
+            <Box sx={{ position: 'relative' }}>
+                {/* Fade edges */}
+                <Box sx={{
+                    position: 'absolute', left: 0, top: 0, bottom: 0, width: '120px', zIndex: 2,
+                    background: 'linear-gradient(to right, #F9F9F9, transparent)',
+                    pointerEvents: 'none',
+                }} />
+                <Box sx={{
+                    position: 'absolute', right: 0, top: 0, bottom: 0, width: '120px', zIndex: 2,
+                    background: 'linear-gradient(to left, #F9F9F9, transparent)',
+                    pointerEvents: 'none',
+                }} />
+
+                <Box sx={{
+                    display: 'flex',
+                    gap: `${GAP}px`,
+                    width: 'max-content',
+                    animation: `marquee 80s linear infinite`,
+                    '@keyframes marquee': {
+                        '0%': { transform: 'translateX(0)' },
+                        '100%': { transform: `translateX(-${TRACK_WIDTH}px)` },
+                    },
+                }}>
+                    {/* Render twice for seamless loop */}
+                    {[...REVIEWS, ...REVIEWS].map((r, i) => (
+                        <ReviewCard key={i} text={r.text} store={r.store} />
                     ))}
                 </Box>
             </Box>
+
         </Box>
     );
 }

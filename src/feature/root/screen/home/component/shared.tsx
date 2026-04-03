@@ -3,7 +3,7 @@ import { C, font } from '../constants';
 
 type TextProps = { children: React.ReactNode; light?: boolean; sx?: BoxProps['sx'] };
 
-export function Eyebrow({ children, light = false }: TextProps) {
+export function Eyebrow({ children, light = false, sx: sxProp }: TextProps) {
     return (
         <Box
             component="p"
@@ -11,20 +11,13 @@ export function Eyebrow({ children, light = false }: TextProps) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '7px',
-                fontSize: '12px',
+                fontSize: '15px',
                 fontWeight: 500,
                 letterSpacing: '.08em',
                 textTransform: 'uppercase',
-                color: light ? C.primary : C.textBrand,
+                color: '#76D1FF',
                 mb: '12px',
-                '&::before': {
-                    content: '""',
-                    width: '16px',
-                    height: '2px',
-                    background: C.primary,
-                    borderRadius: '2px',
-                    flexShrink: 0,
-                },
+                ...sxProp,
             }}
         >
             {children}

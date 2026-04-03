@@ -30,7 +30,7 @@ export default function ReactionSection() {
 
     return (
         <Box component="section" id="reaction" sx={{ py: '7rem', px: '5%', background: C.bg }}>
-            <Box sx={{ maxWidth: '1100px', mx: 'auto', display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: '6rem', alignItems: 'center' }}>
+            <Box sx={{ maxWidth: '1200px', mx: 'auto', display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: '6rem', alignItems: 'center' }}>
                 <Reveal>
                     <Box sx={{ background: C.bgSub, border: `1px solid ${C.border}`, borderRadius: '20px', overflow: 'hidden', boxShadow: `0 12px 40px ${alpha(C.primary, 0.08)}` }}>
                         {/* Photo */}

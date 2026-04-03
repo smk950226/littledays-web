@@ -7,15 +7,11 @@ import { font } from './constants';
 
 import Nav from './component/nav';
 import HeroSection from './component/hero';
-import FeaturesSection from './component/features';
 import TimelineSection from './component/timeline';
-import ReactionSection from './component/reaction';
-import PrivateSection from './component/private_section';
-import HowToSection from './component/how_to';
-import WhySection from './component/why';
-import FreeSection from './component/free';
-import PersonaSection from './component/persona';
-import FamilySection from './component/family';
+import Timeline2Section from './component/timeline2';
+import Timeline3Section from './component/timeline3';
+import Timeline4Section from './component/timeline4';
+import SafetySection from './component/safety';
 import TestimonialsSection from './component/testimonials';
 import CtaSection from './component/cta';
 import Footer from './component/footer';
@@ -30,18 +26,14 @@ export default function Home() {
     }, [location.pathname]);
 
     return (
-        <Box sx={{ fontFamily: font, fontSize: '16px', fontWeight: 500, overflowX: 'hidden' }}>
+        <Box sx={{ fontFamily: font, fontSize: '16px', fontWeight: 500, overflowX: 'clip' }}>
             <Nav />
             <HeroSection />
-            <FeaturesSection />
             <TimelineSection />
-            <ReactionSection />
-            <PrivateSection />
-            <HowToSection />
-            <WhySection />
-            <FreeSection />
-            <PersonaSection />
-            <FamilySection />
+            <Timeline2Section />
+            <Timeline3Section />
+            <Timeline4Section />
+            <SafetySection />
             <TestimonialsSection />
             <CtaSection />
             <Footer />

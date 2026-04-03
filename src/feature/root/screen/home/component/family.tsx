@@ -13,7 +13,7 @@ const CARDS = [
 export default function FamilySection() {
     return (
         <Box component="section" id="family" sx={{ py: '7rem', px: '5%', background: C.bgSub }}>
-            <Box sx={{ maxWidth: '1100px', mx: 'auto', textAlign: 'center' }}>
+            <Box sx={{ maxWidth: '1200px', mx: 'auto', textAlign: 'center' }}>
                 <Reveal><Eyebrow>가족과 함께</Eyebrow></Reveal>
                 <Reveal><SecTitle sx={{ textAlign: 'center' }}>온 가족이 함께 보고,<br />함께 느끼는 성장 앨범</SecTitle></Reveal>
                 <Reveal><SecDesc sx={{ mx: 'auto', textAlign: 'center' }}>멀리 사는 양가 부모님도 아이의 성장을 실시간으로 함께할 수 있습니다.</SecDesc></Reveal>

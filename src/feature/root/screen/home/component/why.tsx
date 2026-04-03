@@ -13,7 +13,7 @@ const CARDS = [
 export default function WhySection() {
     return (
         <Box component="section" id="why" sx={{ py: '7rem', px: '5%', background: C.bgDark2 }}>
-            <Box sx={{ maxWidth: '1100px', mx: 'auto' }}>
+            <Box sx={{ maxWidth: '1200px', mx: 'auto' }}>
                 <Reveal><Eyebrow light>왜 Little Days인가요?</Eyebrow></Reveal>
                 <Reveal><SecTitle light>아기를 위해 설계된<br />가장 안전한 공간</SecTitle></Reveal>
                 <Reveal><SecDesc light>우리 아이의 사진은 가족만을 위한 공간에 안전하게 보관됩니다.</SecDesc></Reveal>

@@ -21,7 +21,7 @@ export default function PrivateSection() {
     return (
         <Box component="section" id="private" sx={{ py: '7rem', px: '5%', background: C.bgDark, position: 'relative', overflow: 'hidden' }}>
             <Box sx={{ position: 'absolute', top: '-200px', right: '-200px', width: '600px', height: '600px', borderRadius: '50%', background: `radial-gradient(circle,${alpha(C.primary, 0.06)} 0%,transparent 70%)`, pointerEvents: 'none' }} />
-            <Box sx={{ maxWidth: '1100px', mx: 'auto', display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: '6rem', alignItems: 'center' }}>
+            <Box sx={{ maxWidth: '1200px', mx: 'auto', display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: '6rem', alignItems: 'center' }}>
                 <Reveal>
                     <Eyebrow light>초대된 가족만의 공간</Eyebrow>
                     <SecTitle light>우리 가족만<br />볼 수 있어요</SecTitle>
