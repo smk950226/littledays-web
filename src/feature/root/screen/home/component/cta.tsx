@@ -10,7 +10,7 @@ export default function CtaSection() {
     return (
         <Box
             component="section"
-            sx={{ background: '#fff', pt: '160px', pb: '160px', px: '5%', textAlign: 'center' }}
+            sx={{ background: '#fff', pt: 0, pb: 0, px: '5%', textAlign: 'center' }}
         >
             <Box sx={{
                 maxWidth: '1000px', mx: 'auto',

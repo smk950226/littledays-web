@@ -59,7 +59,7 @@ export default function Timeline3Section() {
                 position: 'relative', top: 0, width: '100%', height: 'auto',
                 display: 'flex', alignItems: 'flex-start',
                 px: '5%', overflow: 'visible',
-                pt: '160px', pb: '160px',
+                pt: { mobile: '120px', laptop: '120px' }, pb: { mobile: '110px', laptop: '120px' },
             }}>
                 <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: { mobile: 'flex-start', laptop: 'center' } }}>
 
