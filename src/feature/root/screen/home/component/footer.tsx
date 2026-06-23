@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box';
 import { Link } from '@tanstack/react-router';
-import { C } from '../constants';
 
 export default function Footer() {
     return (

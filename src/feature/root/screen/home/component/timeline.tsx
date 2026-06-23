@@ -12,7 +12,6 @@ import img08 from '@/common/asset/asset/img/upload img 08.png';
 import img09 from '@/common/asset/asset/img/upload img 09.png';
 
 const IMAGES = [img01, img02, img03, img04, img05, img06, img07, img08, img09];
-const STEP_VH = 80; // scroll distance per image (vh)
 
 export default function TimelineSection() {
     const [activeIdx, setActiveIdx] = useState(0);
@@ -24,26 +23,6 @@ export default function TimelineSection() {
         const h = (e.target as HTMLImageElement).offsetHeight;
         setMaxImgHeight(prev => Math.max(prev, h));
     };
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.innerWidth < 1024) return;
-            const el = sectionRef.current;
-            if (!el) return;
-            const rect = el.getBoundingClientRect();
-            const scrolled = -rect.top;
-            const stepPx = STEP_VH * window.innerHeight / 100;
-            const idx = Math.min(
-                Math.max(0, Math.floor(scrolled / stepPx)),
-                IMAGES.length - 1
-            );
-            setActiveIdx(idx);
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     useEffect(() => {
         const el = sectionRef.current;
@@ -60,7 +39,6 @@ export default function TimelineSection() {
             timeoutId = setTimeout(advance, 1200);
         };
         const obs = new IntersectionObserver(([entry]) => {
-            if (window.innerWidth >= 1024) return;
             if (entry.isIntersecting && !hasPlayed) {
                 hasPlayed = true;
                 playing = true;
@@ -76,26 +54,24 @@ export default function TimelineSection() {
         return () => { obs.disconnect(); playing = false; clearTimeout(timeoutId); };
     }, []);
 
-    const totalHeight = `calc(100vh + ${IMAGES.length * STEP_VH}vh)`;
-
     return (
         <Box
             ref={sectionRef}
             component="section"
             id="timeline"
-            sx={{ height: { mobile: 'auto', laptop: totalHeight }, background: '#fff', position: 'relative', display: { mobile: 'flex', laptop: 'block' }, alignItems: { mobile: 'flex-start', laptop: 'unset' }, minHeight: { mobile: '100vh', tablet: 'unset', laptop: 'unset' } }}
+            sx={{ height: 'auto', background: '#fff', position: 'relative', display: 'flex', alignItems: 'flex-start', minHeight: { mobile: '100vh', tablet: 'unset', laptop: 'unset' } }}
         >
-            {/* Sticky panel */}
+            {/* Content panel */}
             <Box sx={{
-                position: { mobile: 'relative', laptop: 'sticky' }, top: 0, width: '100%', height: { mobile: 'auto', laptop: '100vh' },
+                position: 'relative', top: 0, width: '100%', height: 'auto',
                 display: 'flex', alignItems: 'flex-start',
-                px: '5%', overflow: { mobile: 'visible', laptop: 'hidden' },
-                pt: { mobile: '80px', laptop: 0 }, pb: { mobile: '90px', laptop: 0 },
+                px: '5%', overflow: 'visible',
+                pt: { mobile: '80px', laptop: '120px' }, pb: { mobile: '90px', laptop: '120px' },
             }}>
-                <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: 'flex-start', pt: { mobile: 0, laptop: '210px' } }}>
+                <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: { mobile: 'flex-start', laptop: 'center' } }}>
 
-                    {/* Left: sticky text */}
-                    <Box sx={{ width: { mobile: '100%', tablet: '320px', laptop: '500px' }, flexShrink: 0, pt: { mobile: 0, laptop: '50px' } }}>
+                    {/* Left: text */}
+                    <Box sx={{ width: { mobile: '100%', tablet: '320px', laptop: '500px' }, flexShrink: 0 }}>
                         <Eyebrow sx={{ fontSize: '16px', fontWeight: 600, mb: '12px', color: '#121212' }}>
                             <Box component="svg" sx={{ width: '18px', height: '18px', flexShrink: 0 }} viewBox="225 147 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M242.561 161.245C242.561 163.316 240.882 164.995 238.811 164.995L229.189 164.995C227.118 164.995 225.439 163.316 225.439 161.245L225.439 150.755C225.439 148.684 227.118 147.005 229.189 147.005L238.811 147.005C240.882 147.005 242.561 148.684 242.561 150.755L242.561 161.245ZM241.061 150.755C241.061 149.513 240.054 148.505 238.811 148.505L229.189 148.505C227.946 148.505 226.939 149.513 226.939 150.755L226.939 158.509C226.939 159.752 227.946 160.759 229.189 160.759L238.811 160.759C240.054 160.759 241.061 159.752 241.061 158.509L241.061 150.755ZM241.042 161.522C240.419 161.985 239.647 162.259 238.811 162.259L229.189 162.259C228.353 162.259 227.582 161.984 226.958 161.522C227.095 162.634 228.04 163.495 229.189 163.495L238.811 163.495C239.96 163.495 240.906 162.634 241.042 161.522Z" fill="currentColor"/>
@@ -115,8 +91,8 @@ export default function TimelineSection() {
                         </SecDesc>
                     </Box>
 
-                    {/* Right: scroll-driven images */}
-                    <Box sx={{ flex: 1, minWidth: 0, width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', height: { laptop: 'calc(100vh - 200px)' }, minHeight: { mobile: maxImgHeight > 0 ? `${maxImgHeight}px` : '90vw', laptop: 'unset' }, mt: { mobile: 0, laptop: '-40px' } }}>
+                    {/* Right: auto-playing images */}
+                    <Box sx={{ flex: 1, minWidth: 0, width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', minHeight: { mobile: maxImgHeight > 0 ? `${maxImgHeight}px` : '90vw', laptop: maxImgHeight > 0 ? `${maxImgHeight}px` : '520px' } }}>
 
                         {/* Images 01-06: single swap */}
                         {IMAGES.slice(0, 6).map((img, i) => (

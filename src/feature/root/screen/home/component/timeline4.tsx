@@ -11,7 +11,6 @@ import img07 from '@/common/asset/asset/img/free img 07.png';
 import unlimitedImg from '@/common/asset/asset/img/unlimited img.png';
 
 const IMAGES = [img01, img02, img03, img04, img05, img06, img07];
-const STEP_VH = 80;
 
 export default function Timeline4Section() {
     const [activeIdx, setActiveIdx] = useState(0);
@@ -22,26 +21,6 @@ export default function Timeline4Section() {
         const h = (e.target as HTMLImageElement).offsetHeight;
         setMaxImgHeight(prev => Math.max(prev, h));
     };
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.innerWidth < 1024) return;
-            const el = sectionRef.current;
-            if (!el) return;
-            const rect = el.getBoundingClientRect();
-            const scrolled = -rect.top;
-            const stepPx = STEP_VH * window.innerHeight / 100;
-            const idx = Math.min(
-                Math.max(0, Math.floor(scrolled / stepPx)),
-                IMAGES.length  // one extra step for unlimitedImg
-            );
-            setActiveIdx(idx);
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     useEffect(() => {
         const el = sectionRef.current;
@@ -59,7 +38,6 @@ export default function Timeline4Section() {
             timeoutId = setTimeout(advance, 1200);
         };
         const obs = new IntersectionObserver(([entry]) => {
-            if (window.innerWidth >= 1024) return;
             if (entry.isIntersecting && !hasPlayed) {
                 hasPlayed = true;
                 playing = true;
@@ -75,23 +53,21 @@ export default function Timeline4Section() {
         return () => { obs.disconnect(); playing = false; clearTimeout(timeoutId); };
     }, []);
 
-    const totalHeight = `calc(100vh + ${(IMAGES.length + 1) * STEP_VH}vh)`;
-
     return (
         <Box
             ref={sectionRef}
             component="section"
-            sx={{ height: { mobile: 'auto', laptop: totalHeight }, background: '#FAFDFF', position: 'relative', display: { mobile: 'flex', laptop: 'block' }, alignItems: { mobile: 'flex-start', laptop: 'unset' }, minHeight: { mobile: 'unset', tablet: '560px', laptop: 'unset' } }}
+            sx={{ height: 'auto', background: '#FAFDFF', position: 'relative', display: 'flex', alignItems: 'flex-start', minHeight: { mobile: 'unset', tablet: '560px', laptop: 'unset' } }}
         >
             <Box sx={{
-                position: { mobile: 'relative', laptop: 'sticky' }, top: 0, width: '100%', height: { mobile: 'auto', laptop: '100vh' },
+                position: 'relative', top: 0, width: '100%', height: 'auto',
                 display: 'flex', alignItems: 'flex-start',
-                px: '5%', overflow: { mobile: 'visible', laptop: 'hidden' },
-                pt: { mobile: '120px', laptop: 0 }, pb: { mobile: '100px', laptop: 0 },
+                px: '5%', overflow: 'visible',
+                pt: { mobile: '120px', laptop: '120px' }, pb: { mobile: '100px', laptop: '120px' },
             }}>
-                <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: 'flex-start', pt: { mobile: 0, laptop: '260px' } }}>
+                <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: { mobile: 'flex-start', laptop: 'center' } }}>
 
-                    {/* Left: sticky text */}
+                    {/* Left: text */}
                     <Box sx={{ width: { mobile: '100%', tablet: '320px', laptop: '500px' }, flexShrink: 0 }}>
                         <Eyebrow sx={{ fontSize: '16px', fontWeight: 600, mb: '16px', color: '#121212' }}>
                             <Box component="svg" sx={{ width: '18px', height: '10px', flexShrink: 0 }} viewBox="444 417 19 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,8 +85,8 @@ export default function Timeline4Section() {
                         </SecDesc>
                     </Box>
 
-                    {/* Right: scroll-driven stacking images (slide up & overlap) */}
-                    <Box sx={{ flex: 1, minWidth: 0, width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', height: { laptop: 'calc(100vh - 200px)' }, minHeight: { mobile: maxImgHeight > 0 ? `${maxImgHeight + 30}px` : '70vw', laptop: 'unset' }, mt: { mobile: 0, laptop: '-40px' } }}>
+                    {/* Right: auto-playing stacking images (slide up & overlap) */}
+                    <Box sx={{ flex: 1, minWidth: 0, width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', minHeight: { mobile: maxImgHeight > 0 ? `${maxImgHeight + 30}px` : '70vw', laptop: maxImgHeight > 0 ? `${maxImgHeight + 30}px` : '520px' } }}>
                         {IMAGES.map((img, i) => {
                             const isVisible = activeIdx >= i;
                             const rotate = i % 2 === 0 ? -6 : 6;

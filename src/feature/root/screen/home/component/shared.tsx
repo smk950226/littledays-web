@@ -3,7 +3,7 @@ import { C, font } from '../constants';
 
 type TextProps = { children: React.ReactNode; light?: boolean; sx?: BoxProps['sx'] };
 
-export function Eyebrow({ children, light = false, sx: sxProp }: TextProps) {
+export function Eyebrow({ children, sx: sxProp }: TextProps) {
     return (
         <Box
             component="p"
