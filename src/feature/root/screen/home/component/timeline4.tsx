@@ -57,13 +57,17 @@ export default function Timeline4Section() {
         <Box
             ref={sectionRef}
             component="section"
-            sx={{ height: 'auto', background: '#FAFDFF', position: 'relative', display: 'flex', alignItems: 'flex-start', minHeight: { mobile: 'unset', tablet: '560px', laptop: 'unset' } }}
+            sx={{ height: 'auto', background: '#fff', position: 'relative', display: 'flex', alignItems: 'flex-start', px: '5%', pt: '160px', pb: '160px', minHeight: { mobile: 'unset', tablet: '560px', laptop: 'unset' } }}
         >
             <Box sx={{
                 position: 'relative', top: 0, width: '100%', height: 'auto',
+                maxWidth: '1280px', mx: 'auto',
+                background: '#FAFDFF',
+                borderRadius: { mobile: '20px', laptop: '32px' },
                 display: 'flex', alignItems: 'flex-start',
-                px: '5%', overflow: 'visible',
-                pt: { mobile: '120px', laptop: '120px' }, pb: { mobile: '100px', laptop: '120px' },
+                px: { mobile: '24px', tablet: '40px', laptop: '70px' },
+                py: { mobile: '80px', laptop: '120px' },
+                overflow: 'hidden',
             }}>
                 <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: { mobile: 'flex-start', laptop: 'center' } }}>
 
