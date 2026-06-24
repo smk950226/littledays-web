@@ -63,7 +63,7 @@ export default function HeroSection() {
             <Box sx={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', mb: { mobile: '62px', tablet: '80px', laptop: '120px' }, animation: 'fu .5s .28s ease both' }}>
                 <Box component="button" onClick={goPlayStore} sx={{
                     display: 'inline-flex', alignItems: 'center', gap: '10px',
-                    background: '#111', color: '#fff',
+                    background: '#111', color: '#fff', WebkitTextFillColor: '#fff',
                     px: { mobile: '18px', tablet: '28px' }, py: { mobile: '12px', tablet: '16px' }, borderRadius: '14px',
                     fontSize: { mobile: '14px', tablet: '16px' }, fontWeight: 600, fontFamily: font,
                     border: 'none', cursor: 'pointer',
@@ -75,7 +75,7 @@ export default function HeroSection() {
                 </Box>
                 <Box component="button" onClick={goAppStore} sx={{
                     display: 'inline-flex', alignItems: 'center', gap: '10px',
-                    background: '#111', color: '#fff',
+                    background: '#111', color: '#fff', WebkitTextFillColor: '#fff',
                     px: { mobile: '18px', tablet: '28px' }, py: { mobile: '12px', tablet: '16px' }, borderRadius: '14px',
                     fontSize: { mobile: '14px', tablet: '16px' }, fontWeight: 600, fontFamily: font,
                     border: 'none', cursor: 'pointer',
