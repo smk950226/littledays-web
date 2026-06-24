@@ -99,7 +99,7 @@ export default function Timeline4Section() {
                                     sx={{
                                         position: 'absolute',
                                         ml: { mobile: 0, tablet: '40px', laptop: 0 },
-                                        top: { mobile: 0, tablet: '50%', laptop: '50%' },
+                                        top: { mobile: '50%', tablet: '50%', laptop: '50%' },
                                         width: { mobile: '220px', tablet: '54%', laptop: '410px' },
                                         height: 'auto',
                                         borderRadius: '20px',
@@ -107,12 +107,12 @@ export default function Timeline4Section() {
                                         opacity: isVisible ? 1 : 0,
                                         transform: isVisible
                                             ? {
-                                                mobile: `translateY(0) rotate(${rotate}deg)`,
+                                                mobile: `translateY(-50%) rotate(${rotate}deg)`,
                                                 tablet: `translateY(-50%) rotate(${rotate}deg)`,
                                                 laptop: `translateY(-50%) rotate(${rotate}deg)`,
                                             }
                                             : {
-                                                mobile: `translateY(80px) rotate(${rotate}deg)`,
+                                                mobile: `translateY(calc(-50% + 80px)) rotate(${rotate}deg)`,
                                                 tablet: `translateY(calc(-50% + 80px)) rotate(${rotate}deg)`,
                                                 laptop: `translateY(calc(-50% + 80px)) rotate(${rotate}deg)`,
                                             },
@@ -135,8 +135,8 @@ export default function Timeline4Section() {
                                 zIndex: IMAGES.length,
                                 opacity: activeIdx >= IMAGES.length ? 1 : 0,
                                 transform: activeIdx >= IMAGES.length
-                                    ? { mobile: 'translateY(calc(-50% + 25px))', tablet: 'translateY(-50%)', laptop: 'translateY(-50%)' }
-                                    : { mobile: 'translateY(calc(-50% + 105px))', tablet: 'translateY(calc(-50% + 80px))', laptop: 'translateY(calc(-50% + 80px))' },
+                                    ? { mobile: 'translateY(-50%)', tablet: 'translateY(-50%)', laptop: 'translateY(-50%)' }
+                                    : { mobile: 'translateY(calc(-50% + 80px))', tablet: 'translateY(calc(-50% + 80px))', laptop: 'translateY(calc(-50% + 80px))' },
                                 transition: 'opacity 0.5s ease, transform 0.5s ease',
                                 willChange: 'opacity, transform',
                                 pointerEvents: 'none',
