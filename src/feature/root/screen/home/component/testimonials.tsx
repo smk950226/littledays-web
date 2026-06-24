@@ -76,7 +76,7 @@ const TRACK_WIDTH = REVIEWS.length * (CARD_WIDTH + GAP);
 
 export default function TestimonialsSection() {
     return (
-        <Box component="section" sx={{ pt: { mobile: '120px', tablet: '125px', laptop: '180px' }, pb: { mobile: '120px', tablet: '125px', laptop: '180px' }, background: 'linear-gradient(to bottom, #F9F9F9, #ffffff)', overflow: 'hidden' }}>
+        <Box component="section" sx={{ pt: { mobile: '120px', tablet: '125px', laptop: '140px' }, pb: { mobile: '120px', tablet: '125px', laptop: '140px' }, background: 'linear-gradient(to bottom, #F9F9F9, #ffffff)', overflow: 'hidden' }}>
 
             {/* Title */}
             <Box sx={{ textAlign: 'center', mb: { mobile: '80px', tablet: '60px', laptop: '90px' }, px: '5%' }}>

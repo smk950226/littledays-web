@@ -62,7 +62,7 @@ export default function Timeline4Section() {
                 position: 'relative', top: 0, width: '100%', height: 'auto',
                 display: 'flex', alignItems: 'flex-start',
                 px: '5%', overflow: 'visible',
-                pt: { mobile: '110px', tablet: '125px', laptop: '120px' }, pb: { mobile: '110px', tablet: '125px', laptop: '120px' },
+                pt: { mobile: '110px', tablet: '125px', laptop: '140px' }, pb: { mobile: '110px', tablet: '125px', laptop: '140px' },
             }}>
                 <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: { mobile: 'flex-start', tablet: 'center', laptop: 'center' } }}>
 
@@ -98,7 +98,7 @@ export default function Timeline4Section() {
                                     onLoad={handleImgLoad}
                                     sx={{
                                         position: 'absolute',
-                                        top: { mobile: 0, tablet: '50%', laptop: 0 },
+                                        top: { mobile: 0, tablet: '50%', laptop: '50%' },
                                         width: { mobile: '220px', tablet: '54%', laptop: '410px' },
                                         height: 'auto',
                                         borderRadius: '20px',
@@ -108,12 +108,12 @@ export default function Timeline4Section() {
                                             ? {
                                                 mobile: `translateY(0) rotate(${rotate}deg)`,
                                                 tablet: `translateY(-50%) rotate(${rotate}deg)`,
-                                                laptop: `translateY(0) rotate(${rotate}deg)`,
+                                                laptop: `translateY(-50%) rotate(${rotate}deg)`,
                                             }
                                             : {
                                                 mobile: `translateY(80px) rotate(${rotate}deg)`,
                                                 tablet: `translateY(calc(-50% + 80px)) rotate(${rotate}deg)`,
-                                                laptop: `translateY(80px) rotate(${rotate}deg)`,
+                                                laptop: `translateY(calc(-50% + 80px)) rotate(${rotate}deg)`,
                                             },
                                         transition: 'opacity 0.5s ease, transform 0.5s ease',
                                         willChange: 'opacity, transform',
@@ -128,13 +128,13 @@ export default function Timeline4Section() {
                             alt="unlimited"
                             sx={{
                                 position: 'absolute',
-                                top: { mobile: 0, tablet: '50%', laptop: 0 },
+                                top: { mobile: 0, tablet: '50%', laptop: '50%' },
                                 height: 'auto',
                                 zIndex: IMAGES.length,
                                 opacity: activeIdx >= IMAGES.length ? 1 : 0,
                                 transform: activeIdx >= IMAGES.length
-                                    ? { mobile: 'translateY(0)', tablet: 'translateY(-50%)', laptop: 'translateY(0)' }
-                                    : { mobile: 'translateY(80px)', tablet: 'translateY(calc(-50% + 80px))', laptop: 'translateY(80px)' },
+                                    ? { mobile: 'translateY(0)', tablet: 'translateY(-50%)', laptop: 'translateY(-50%)' }
+                                    : { mobile: 'translateY(80px)', tablet: 'translateY(calc(-50% + 80px))', laptop: 'translateY(calc(-50% + 80px))' },
                                 transition: 'opacity 0.5s ease, transform 0.5s ease',
                                 willChange: 'opacity, transform',
                                 pointerEvents: 'none',
