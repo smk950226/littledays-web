@@ -135,8 +135,8 @@ export default function Timeline4Section() {
                                 zIndex: IMAGES.length,
                                 opacity: activeIdx >= IMAGES.length ? 1 : 0,
                                 transform: activeIdx >= IMAGES.length
-                                    ? { mobile: 'translateY(-50%)', tablet: 'translateY(-50%)', laptop: 'translateY(-50%)' }
-                                    : { mobile: 'translateY(calc(-50% + 80px))', tablet: 'translateY(calc(-50% + 80px))', laptop: 'translateY(calc(-50% + 80px))' },
+                                    ? { mobile: 'translateY(calc(-50% + 25px))', tablet: 'translateY(-50%)', laptop: 'translateY(-50%)' }
+                                    : { mobile: 'translateY(calc(-50% + 105px))', tablet: 'translateY(calc(-50% + 80px))', laptop: 'translateY(calc(-50% + 80px))' },
                                 transition: 'opacity 0.5s ease, transform 0.5s ease',
                                 willChange: 'opacity, transform',
                                 pointerEvents: 'none',
