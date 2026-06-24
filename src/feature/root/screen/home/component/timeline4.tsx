@@ -56,7 +56,7 @@ export default function Timeline4Section() {
         <Box
             ref={sectionRef}
             component="section"
-            sx={{ height: 'auto', background: '#FAFDFF', position: 'relative', display: 'flex', alignItems: 'flex-start', minHeight: { mobile: 'unset', tablet: '560px', laptop: 'unset' } }}
+            sx={{ height: 'auto', background: '#FAFDFF', position: 'relative', display: 'flex', alignItems: 'flex-start', minHeight: { mobile: 'unset', tablet: 'unset', laptop: 'unset' } }}
         >
             <Box sx={{
                 position: 'relative', top: 0, width: '100%', height: 'auto',

@@ -59,7 +59,7 @@ export default function TimelineSection() {
             ref={sectionRef}
             component="section"
             id="timeline"
-            sx={{ height: 'auto', background: '#fff', position: 'relative', display: 'flex', alignItems: 'flex-start', minHeight: { mobile: 'unset', tablet: '560px', laptop: 'unset' } }}
+            sx={{ height: 'auto', background: '#fff', position: 'relative', display: 'flex', alignItems: 'flex-start', minHeight: { mobile: 'unset', tablet: 'unset', laptop: 'unset' } }}
         >
             {/* Content panel */}
             <Box sx={{
