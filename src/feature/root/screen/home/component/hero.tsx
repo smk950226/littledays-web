@@ -13,14 +13,15 @@ export default function HeroSection() {
     const [cardsVisible, setCardsVisible] = useState(false);
 
     useEffect(() => {
-        const el = imgRef.current;
-        if (!el) return;
-        const obs = new IntersectionObserver(
-            ([entry]) => { if (entry.isIntersecting) setCardsVisible(true); },
-            { threshold: 0.3, rootMargin: '0px 0px -50px 0px' },
-        );
-        obs.observe(el);
-        return () => obs.disconnect();
+        const onScroll = () => {
+            if (window.scrollY > 0) {
+                setCardsVisible(true);
+                window.removeEventListener('scroll', onScroll);
+            }
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        return () => window.removeEventListener('scroll', onScroll);
     }, []);
     return (
         <Box
