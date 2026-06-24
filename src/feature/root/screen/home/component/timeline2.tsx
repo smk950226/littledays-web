@@ -100,7 +100,7 @@ export default function Timeline2Section() {
                                     backgroundColor: '#fff',
                                     borderRadius: '16px',
                                     boxShadow: '0 8px 24px rgba(0,0,0,0.10)',
-                                    px: { mobile: '10px', tablet: '22px', laptop: '22px' },
+                                    px: '10px',
                                     py: { mobile: '16px', tablet: '28px', laptop: '28px' },
                                     boxSizing: 'border-box',
                                     opacity: activeIdx === i ? 1 : 0,
