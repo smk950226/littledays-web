@@ -96,7 +96,7 @@ export default function TimelineSection() {
 
                         {/* Images 01-06: single swap */}
                         {IMAGES.slice(0, 6).map((img, i) => {
-                            const hasBox = i < 5; // 이미지 1~5: 모바일에서만 흰 박스 배경(라운드 16px + 그림자)
+                            const hasBox = i < 6; // 이미지 1~6: 모바일에서만 흰 박스 배경(라운드 16px + 그림자 + 안쪽 여백 10px)
                             return (
                                 <Box
                                     key={i}
@@ -113,6 +113,8 @@ export default function TimelineSection() {
                                         backgroundColor: hasBox ? { mobile: '#fff', tablet: 'transparent', laptop: 'transparent' } : 'transparent',
                                         borderRadius: hasBox ? { mobile: '16px', tablet: '20px', laptop: '20px' } : '20px',
                                         boxShadow: hasBox ? { mobile: '0 8px 24px rgba(0,0,0,0.10)', tablet: 'none', laptop: 'none' } : 'none',
+                                        p: hasBox ? { mobile: '10px', tablet: 0, laptop: 0 } : 0,
+                                        boxSizing: 'border-box',
                                         opacity: activeIdx === i ? 1 : 0,
                                         transform: { mobile: 'none', tablet: 'translateY(-50%)', laptop: 'none' },
                                         transition: 'none',
