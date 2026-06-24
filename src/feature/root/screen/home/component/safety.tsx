@@ -43,7 +43,7 @@ export default function SafetySection() {
     return (
         <Box
             component="section"
-            sx={{ pt: { mobile: '120px', tablet: '140px', laptop: '180px' }, pb: { mobile: '120px', tablet: '140px', laptop: '180px' }, px: '5%', background: '#fff' }}
+            sx={{ pt: { mobile: '120px', tablet: '125px', laptop: '180px' }, pb: { mobile: '120px', tablet: '125px', laptop: '180px' }, px: '5%', background: '#fff' }}
         >
             <Box sx={{ maxWidth: '1140px', mx: 'auto' }}>
                 <Box
