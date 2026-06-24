@@ -59,14 +59,14 @@ export default function TimelineSection() {
             ref={sectionRef}
             component="section"
             id="timeline"
-            sx={{ height: 'auto', background: '#fff', position: 'relative', display: 'flex', alignItems: 'flex-start', minHeight: { mobile: '100vh', tablet: 'unset', laptop: 'unset' } }}
+            sx={{ height: 'auto', background: '#fff', position: 'relative', display: 'flex', alignItems: 'flex-start', minHeight: { mobile: 'unset', tablet: '560px', laptop: 'unset' } }}
         >
             {/* Content panel */}
             <Box sx={{
                 position: 'relative', top: 0, width: '100%', height: 'auto',
                 display: 'flex', alignItems: 'flex-start',
                 px: '5%', overflow: 'visible',
-                pt: { mobile: '80px', laptop: '120px' }, pb: { mobile: '90px', laptop: '120px' },
+                pt: { mobile: '120px', laptop: '120px' }, pb: { mobile: '100px', laptop: '120px' },
             }}>
                 <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: { mobile: 'flex-start', laptop: 'center' } }}>
 
