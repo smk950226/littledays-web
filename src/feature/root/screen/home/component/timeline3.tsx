@@ -85,26 +85,34 @@ export default function Timeline3Section() {
 
                     {/* Right: auto-playing images */}
                     <Box sx={{ flex: 1, minWidth: 0, width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', minHeight: { mobile: maxImgHeight > 0 ? `${maxImgHeight}px` : '100vw', laptop: maxImgHeight > 0 ? `${maxImgHeight}px` : '520px' } }}>
-                        {IMAGES.map((img, i) => (
-                            <Box
-                                key={i}
-                                component="img"
-                                src={img}
-                                alt={`section3 img ${i + 1}`}
-                                onLoad={handleImgLoad}
-                                sx={{
-                                    position: 'absolute',
-                                    ml: { mobile: 0, tablet: '40px', laptop: 0 },
-                                    top: { mobile: 0, tablet: '50%', laptop: 0 },
-                                    width: { mobile: '240px', tablet: '54%', laptop: '410px' },
-                                    height: 'auto',
-                                    borderRadius: '20px',
-                                    transform: { mobile: 'none', tablet: 'translateY(-50%)', laptop: 'none' },
-                                    visibility: activeIdx === i ? 'visible' : 'hidden',
-                                    pointerEvents: 'none',
-                                }}
-                            />
-                        ))}
+                        {IMAGES.map((img, i) => {
+                            const hasBox = i < 5; // 이미지 1~5: 모바일에서만 흰 박스 배경(라운드 16px·그림자·여백)
+                            return (
+                                <Box
+                                    key={i}
+                                    component="img"
+                                    src={img}
+                                    alt={`section3 img ${i + 1}`}
+                                    onLoad={handleImgLoad}
+                                    sx={{
+                                        position: 'absolute',
+                                        ml: { mobile: 0, tablet: '40px', laptop: 0 },
+                                        top: { mobile: 0, tablet: '50%', laptop: 0 },
+                                        width: { mobile: '240px', tablet: '54%', laptop: '410px' },
+                                        height: 'auto',
+                                        backgroundColor: hasBox ? { mobile: '#fff', tablet: 'transparent', laptop: 'transparent' } : 'transparent',
+                                        borderRadius: hasBox ? { mobile: '16px', tablet: '20px', laptop: '20px' } : '20px',
+                                        boxShadow: hasBox ? { mobile: '0 8px 24px rgba(0,0,0,0.10)', tablet: 'none', laptop: 'none' } : 'none',
+                                        px: hasBox ? { mobile: '10px', tablet: 0, laptop: 0 } : 0,
+                                        py: hasBox ? { mobile: '16px', tablet: 0, laptop: 0 } : 0,
+                                        boxSizing: 'border-box',
+                                        transform: { mobile: 'none', tablet: 'translateY(-50%)', laptop: 'none' },
+                                        visibility: activeIdx === i ? 'visible' : 'hidden',
+                                        pointerEvents: 'none',
+                                    }}
+                                />
+                            );
+                        })}
                     </Box>
 
                 </Box>
