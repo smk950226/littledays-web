@@ -135,7 +135,7 @@ export default function HeroSection() {
                     transform: cardsVisible ? 'translateY(0)' : 'translateY(20px)',
                     transition: 'opacity 1s ease 0.4s, transform 1s ease 0.4s',
                 }}>
-                    선명하게<br />원본 그대로
+                    가족이 몇 명이든<br />누구나!
                 </Box>
 
                 <Box component="img" src={mainImg} alt="Little Days 앱 화면" sx={{ width: { mobile: '240px', tablet: '300px', laptop: '420px' }, minWidth: '240px', height: 'auto', display: 'block', mx: 'auto', WebkitMaskImage: 'linear-gradient(to bottom, black 62%, transparent 85%)', maskImage: 'linear-gradient(to bottom, black 62%, transparent 85%)' }} />
