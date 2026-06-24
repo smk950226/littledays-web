@@ -61,7 +61,7 @@ export default function Timeline3Section() {
                 px: '5%', overflow: 'visible',
                 pt: { mobile: '110px', laptop: '120px' }, pb: { mobile: '110px', laptop: '120px' },
             }}>
-                <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: { mobile: 'flex-start', laptop: 'center' } }}>
+                <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: { mobile: 'flex-start', tablet: 'center', laptop: 'center' } }}>
 
                     {/* Left: text */}
                     <Box sx={{ width: { mobile: '100%', tablet: '320px', laptop: '500px' }, flexShrink: 0 }}>
@@ -95,7 +95,7 @@ export default function Timeline3Section() {
                                 sx={{
                                     position: 'absolute',
                                     top: 0,
-                                    width: { mobile: '240px', tablet: '60%', laptop: '410px' },
+                                    width: { mobile: '240px', tablet: '54%', laptop: '410px' },
                                     height: 'auto',
                                     borderRadius: '20px',
                                     visibility: activeIdx === i ? 'visible' : 'hidden',
