@@ -94,10 +94,11 @@ export default function Timeline3Section() {
                                 onLoad={handleImgLoad}
                                 sx={{
                                     position: 'absolute',
-                                    top: 0,
+                                    top: '50%',
                                     width: { mobile: '240px', tablet: '54%', laptop: '410px' },
                                     height: 'auto',
                                     borderRadius: '20px',
+                                    transform: 'translateY(-50%)',
                                     visibility: activeIdx === i ? 'visible' : 'hidden',
                                     pointerEvents: 'none',
                                 }}

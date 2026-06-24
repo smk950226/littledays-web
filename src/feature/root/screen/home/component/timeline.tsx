@@ -104,11 +104,12 @@ export default function TimelineSection() {
                                 onLoad={handleImgLoad}
                                 sx={{
                                     position: 'absolute',
-                                    top: 0,
+                                    top: '50%',
                                     width: { mobile: '240px', tablet: '54%', laptop: '410px' },
                                     height: 'auto',
                                     borderRadius: '20px',
                                     opacity: activeIdx === i ? 1 : 0,
+                                    transform: 'translateY(-50%)',
                                     transition: 'none',
                                     willChange: 'opacity',
                                     pointerEvents: 'none',
@@ -133,13 +134,13 @@ export default function TimelineSection() {
                                     onLoad={j === 0 ? (e) => setStackStep((e.target as HTMLImageElement).offsetHeight) : undefined}
                                     sx={{
                                         position: 'absolute',
-                                        top: 0,
+                                        top: '50%',
                                         width: { mobile: '240px', tablet: '54%', laptop: '410px' },
                                         height: 'auto',
                                         borderRadius: '20px',
                                         boxShadow: '0 24px 64px rgba(0,0,0,.12)',
                                         opacity: isVisible ? 1 : 0,
-                                        transform: { mobile: `translateY(${translateYMobile}px)`, laptop: `translateY(${translateYLaptop}px)` },
+                                        transform: { mobile: `translateY(calc(-50% + ${translateYMobile}px))`, laptop: `translateY(calc(-50% + ${translateYLaptop}px))` },
                                         transition: 'opacity 0.5s ease, transform 0.5s ease',
                                         willChange: 'opacity, transform',
                                         pointerEvents: 'none',

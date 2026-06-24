@@ -14,7 +14,6 @@ const IMAGES = [img01, img02, img03, img04, img05, img06, img07];
 
 export default function Timeline4Section() {
     const [activeIdx, setActiveIdx] = useState(0);
-    const [cardHeight, setCardHeight] = useState(0);
     const [maxImgHeight, setMaxImgHeight] = useState(0);
     const sectionRef = useRef<HTMLDivElement>(null);
     const handleImgLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
@@ -96,18 +95,18 @@ export default function Timeline4Section() {
                                     component="img"
                                     src={img}
                                     alt={`free img ${i + 1}`}
-                                    onLoad={(e) => { if (i === 0) setCardHeight((e.target as HTMLImageElement).offsetHeight); handleImgLoad(e); }}
+                                    onLoad={handleImgLoad}
                                     sx={{
                                         position: 'absolute',
-                                        top: 0,
+                                        top: '50%',
                                         width: { mobile: '220px', tablet: '54%', laptop: '410px' },
                                         height: 'auto',
                                         borderRadius: '20px',
                                         zIndex: i,
                                         opacity: isVisible ? 1 : 0,
                                         transform: isVisible
-                                            ? `translateY(0) rotate(${rotate}deg)`
-                                            : `translateY(80px) rotate(${rotate}deg)`,
+                                            ? `translateY(-50%) rotate(${rotate}deg)`
+                                            : `translateY(calc(-50% + 80px)) rotate(${rotate}deg)`,
                                         transition: 'opacity 0.5s ease, transform 0.5s ease',
                                         willChange: 'opacity, transform',
                                         pointerEvents: 'none',
@@ -121,7 +120,7 @@ export default function Timeline4Section() {
                             alt="unlimited"
                             sx={{
                                 position: 'absolute',
-                                top: cardHeight > 0 ? `${cardHeight / 2}px` : '50%',
+                                top: '50%',
                                 height: 'auto',
                                 zIndex: IMAGES.length,
                                 opacity: activeIdx >= IMAGES.length ? 1 : 0,
