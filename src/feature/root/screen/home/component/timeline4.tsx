@@ -98,6 +98,7 @@ export default function Timeline4Section() {
                                     onLoad={handleImgLoad}
                                     sx={{
                                         position: 'absolute',
+                                        ml: { mobile: 0, tablet: '40px', laptop: 0 },
                                         top: { mobile: 0, tablet: '50%', laptop: '50%' },
                                         width: { mobile: '220px', tablet: '54%', laptop: '410px' },
                                         height: 'auto',
@@ -128,6 +129,7 @@ export default function Timeline4Section() {
                             alt="unlimited"
                             sx={{
                                 position: 'absolute',
+                                ml: { mobile: 0, tablet: '40px', laptop: 0 },
                                 top: { mobile: 0, tablet: '50%', laptop: '50%' },
                                 height: 'auto',
                                 zIndex: IMAGES.length,

@@ -93,6 +93,7 @@ export default function Timeline2Section() {
                                 onLoad={handleImgLoad}
                                 sx={{
                                     position: 'absolute',
+                                    ml: { mobile: 0, tablet: '40px', laptop: 0 },
                                     top: { mobile: 0, tablet: '50%', laptop: 0 },
                                     width: { mobile: '240px', tablet: '54%', laptop: '410px' },
                                     height: 'auto',
