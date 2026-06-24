@@ -100,7 +100,7 @@ export default function Timeline4Section() {
                                         position: 'absolute',
                                         ml: { mobile: 0, tablet: '40px', laptop: 0 },
                                         top: { mobile: '50%', tablet: '50%', laptop: '50%' },
-                                        width: { mobile: '220px', tablet: '54%', laptop: '410px' },
+                                        width: { mobile: '220px', tablet: '54%', laptop: '360px' },
                                         height: 'auto',
                                         borderRadius: '20px',
                                         zIndex: i,
@@ -140,7 +140,7 @@ export default function Timeline4Section() {
                                 transition: 'opacity 0.5s ease, transform 0.5s ease',
                                 willChange: 'opacity, transform',
                                 pointerEvents: 'none',
-                                width: { mobile: '180px', laptop: '260px' },
+                                width: { mobile: '180px', laptop: '229px' },
                             }}
                         />
                     </Box>
