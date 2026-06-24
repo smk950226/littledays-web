@@ -98,15 +98,23 @@ export default function Timeline4Section() {
                                     onLoad={handleImgLoad}
                                     sx={{
                                         position: 'absolute',
-                                        top: '50%',
+                                        top: { mobile: 0, tablet: '50%', laptop: 0 },
                                         width: { mobile: '220px', tablet: '54%', laptop: '410px' },
                                         height: 'auto',
                                         borderRadius: '20px',
                                         zIndex: i,
                                         opacity: isVisible ? 1 : 0,
                                         transform: isVisible
-                                            ? `translateY(-50%) rotate(${rotate}deg)`
-                                            : `translateY(calc(-50% + 80px)) rotate(${rotate}deg)`,
+                                            ? {
+                                                mobile: `translateY(0) rotate(${rotate}deg)`,
+                                                tablet: `translateY(-50%) rotate(${rotate}deg)`,
+                                                laptop: `translateY(0) rotate(${rotate}deg)`,
+                                            }
+                                            : {
+                                                mobile: `translateY(80px) rotate(${rotate}deg)`,
+                                                tablet: `translateY(calc(-50% + 80px)) rotate(${rotate}deg)`,
+                                                laptop: `translateY(80px) rotate(${rotate}deg)`,
+                                            },
                                         transition: 'opacity 0.5s ease, transform 0.5s ease',
                                         willChange: 'opacity, transform',
                                         pointerEvents: 'none',
@@ -120,11 +128,13 @@ export default function Timeline4Section() {
                             alt="unlimited"
                             sx={{
                                 position: 'absolute',
-                                top: '50%',
+                                top: { mobile: 0, tablet: '50%', laptop: 0 },
                                 height: 'auto',
                                 zIndex: IMAGES.length,
                                 opacity: activeIdx >= IMAGES.length ? 1 : 0,
-                                transform: activeIdx >= IMAGES.length ? 'translateY(-50%)' : 'translateY(calc(-50% + 80px))',
+                                transform: activeIdx >= IMAGES.length
+                                    ? { mobile: 'translateY(0)', tablet: 'translateY(-50%)', laptop: 'translateY(0)' }
+                                    : { mobile: 'translateY(80px)', tablet: 'translateY(calc(-50% + 80px))', laptop: 'translateY(80px)' },
                                 transition: 'opacity 0.5s ease, transform 0.5s ease',
                                 willChange: 'opacity, transform',
                                 pointerEvents: 'none',

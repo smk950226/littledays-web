@@ -93,12 +93,12 @@ export default function Timeline2Section() {
                                 onLoad={handleImgLoad}
                                 sx={{
                                     position: 'absolute',
-                                    top: '50%',
+                                    top: { mobile: 0, tablet: '50%', laptop: 0 },
                                     width: { mobile: '240px', tablet: '54%', laptop: '410px' },
                                     height: 'auto',
                                     borderRadius: '20px',
                                     opacity: activeIdx === i ? 1 : 0,
-                                    transform: 'translateY(-50%)',
+                                    transform: { mobile: 'none', tablet: 'translateY(-50%)', laptop: 'none' },
                                     transition: 'none',
                                     willChange: 'opacity',
                                     pointerEvents: 'none',
