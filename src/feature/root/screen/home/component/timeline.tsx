@@ -66,7 +66,7 @@ export default function TimelineSection() {
                 position: 'relative', top: 0, width: '100%', height: 'auto',
                 display: 'flex', alignItems: 'flex-start',
                 px: '5%', overflow: 'visible',
-                pt: { mobile: '20px', tablet: '125px', laptop: '120px' }, pb: { mobile: '110px', tablet: '125px', laptop: '120px' },
+                pt: { mobile: '20px', tablet: '40px', laptop: '120px' }, pb: { mobile: '110px', tablet: '125px', laptop: '120px' },
             }}>
                 <Box sx={{ maxWidth: '1140px', mx: 'auto', width: '100%', display: 'flex', flexDirection: { mobile: 'column', tablet: 'row', laptop: 'row' }, gap: { mobile: '90px', tablet: '2rem', laptop: '6rem' }, alignItems: { mobile: 'flex-start', tablet: 'center', laptop: 'center' } }}>
 
