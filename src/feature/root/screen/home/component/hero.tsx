@@ -40,7 +40,7 @@ export default function HeroSection() {
                 sx={{
                     fontSize: { mobile: '38px', tablet: '48px', laptop: '62px' }, fontWeight: 700,
                     lineHeight: 1.18, letterSpacing: '-.5px', color: C.text,
-                    mt: { mobile: '72px', tablet: '40px', laptop: '60px' }, mb: { mobile: '16px', tablet: '28px', laptop: '32px' }, fontFamily: font, animation: 'fu .5s .08s ease both',
+                    mt: { mobile: '72px', tablet: '72px', laptop: '60px' }, mb: { mobile: '16px', tablet: '28px', laptop: '32px' }, fontFamily: font, animation: 'fu .5s .08s ease both',
                 }}
             >
                 아이의 모든 순간을<br />
