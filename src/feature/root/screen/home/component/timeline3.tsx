@@ -31,7 +31,7 @@ export default function Timeline3Section() {
             idx = idx + 1;
             if (idx >= IMAGES.length) return;
             setActiveIdx(idx);
-            timeoutId = setTimeout(advance, 1200);
+            timeoutId = setTimeout(advance, 950);
         };
         const obs = new IntersectionObserver(([entry]) => {
             if (entry.isIntersecting && !hasPlayed) {
@@ -39,7 +39,7 @@ export default function Timeline3Section() {
                 playing = true;
                 idx = 0;
                 setActiveIdx(0);
-                timeoutId = setTimeout(advance, 1200);
+                timeoutId = setTimeout(advance, 950);
             } else {
                 playing = false;
                 clearTimeout(timeoutId);
