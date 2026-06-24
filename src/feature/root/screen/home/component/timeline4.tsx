@@ -130,13 +130,13 @@ export default function Timeline4Section() {
                             sx={{
                                 position: 'absolute',
                                 ml: { mobile: 0, tablet: '40px', laptop: 0 },
-                                top: { mobile: 0, tablet: '50%', laptop: '50%' },
+                                top: { mobile: '50%', tablet: '50%', laptop: '50%' },
                                 height: 'auto',
                                 zIndex: IMAGES.length,
                                 opacity: activeIdx >= IMAGES.length ? 1 : 0,
                                 transform: activeIdx >= IMAGES.length
-                                    ? { mobile: 'translateY(0)', tablet: 'translateY(-50%)', laptop: 'translateY(-50%)' }
-                                    : { mobile: 'translateY(80px)', tablet: 'translateY(calc(-50% + 80px))', laptop: 'translateY(calc(-50% + 80px))' },
+                                    ? { mobile: 'translateY(-50%)', tablet: 'translateY(-50%)', laptop: 'translateY(-50%)' }
+                                    : { mobile: 'translateY(calc(-50% + 80px))', tablet: 'translateY(calc(-50% + 80px))', laptop: 'translateY(calc(-50% + 80px))' },
                                 transition: 'opacity 0.5s ease, transform 0.5s ease',
                                 willChange: 'opacity, transform',
                                 pointerEvents: 'none',
