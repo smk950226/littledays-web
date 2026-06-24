@@ -96,11 +96,11 @@ export default function HeroSection() {
                     px: { mobile: '20px', tablet: '20px', laptop: '32px' }, py: { mobile: '12px', tablet: '14px', laptop: '20px' },
                     boxShadow: '0 8px 32px rgba(0,0,0,0.10)',
                     fontSize: { mobile: '12px', tablet: '15px', laptop: '18px' }, fontWeight: 700, color: '#121212',
-                    lineHeight: '18px', textAlign: 'center', whiteSpace: 'nowrap', zIndex: 2,
+                    lineHeight: 1.4, textAlign: 'center', whiteSpace: 'nowrap', zIndex: 2,
                     fontFamily: font,
                     opacity: cardsVisible ? 1 : 0,
                     transform: cardsVisible ? 'translateY(0)' : 'translateY(20px)',
-                    transition: 'opacity .6s ease 0.1s, transform .6s ease 0.1s',
+                    transition: 'opacity 1s ease 0.1s, transform 1s ease 0.1s',
                 }}>
                     용량 제한 없이<br />원본 그대로!
                 </Box>
@@ -112,11 +112,11 @@ export default function HeroSection() {
                     px: { mobile: '20px', tablet: '20px', laptop: '32px' }, py: { mobile: '12px', tablet: '14px', laptop: '20px' },
                     boxShadow: '0 8px 32px rgba(0,0,0,0.10)',
                     fontSize: { mobile: '12px', tablet: '15px', laptop: '18px' }, fontWeight: 700, color: '#121212',
-                    lineHeight: '18px', textAlign: 'center', whiteSpace: 'nowrap', zIndex: 2,
+                    lineHeight: 1.4, textAlign: 'center', whiteSpace: 'nowrap', zIndex: 2,
                     fontFamily: font,
                     opacity: cardsVisible ? 1 : 0,
                     transform: cardsVisible ? 'translateY(0)' : 'translateY(20px)',
-                    transition: 'opacity .6s ease 0.25s, transform .6s ease 0.25s',
+                    transition: 'opacity 1s ease 0.25s, transform 1s ease 0.25s',
                 }}>
                     선명하게<br />원본 그대로
                 </Box>
@@ -128,11 +128,11 @@ export default function HeroSection() {
                     px: { mobile: '20px', tablet: '20px', laptop: '32px' }, py: { mobile: '12px', tablet: '14px', laptop: '20px' },
                     boxShadow: '0 8px 32px rgba(0,0,0,0.10)',
                     fontSize: { mobile: '12px', tablet: '15px', laptop: '18px' }, fontWeight: 700, color: '#121212',
-                    lineHeight: '18px', textAlign: 'center', whiteSpace: 'nowrap', zIndex: 2,
+                    lineHeight: 1.4, textAlign: 'center', whiteSpace: 'nowrap', zIndex: 2,
                     fontFamily: font,
                     opacity: cardsVisible ? 1 : 0,
                     transform: cardsVisible ? 'translateY(0)' : 'translateY(20px)',
-                    transition: 'opacity .6s ease 0.4s, transform .6s ease 0.4s',
+                    transition: 'opacity 1s ease 0.4s, transform 1s ease 0.4s',
                 }}>
                     선명하게<br />원본 그대로
                 </Box>
