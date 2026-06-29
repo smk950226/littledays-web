@@ -77,16 +77,23 @@ export default function Invite() {
             }}
         >
             <SvgIcon icon={SvgIcons.logo} height={24} />
-            <Headline2 textAlign={'center'} sx={{ mt: 32 }}>
+            <Headline2
+                sx={{
+                    textAlign: 'center',
+                    mt: 32,
+                }}
+            >
                 {t('inviteTitle', {
                     name: baby.name,
                     app: t('app'),
                 })}
             </Headline2>
             <Body3
-                textAlign={'center'}
                 color={theme.text.default}
-                sx={{ mt: 8 }}
+                sx={{
+                    textAlign: 'center',
+                    mt: 8,
+                }}
             >
                 {t('inviteDescription', {
                     name: baby.name,
@@ -134,9 +141,9 @@ export default function Invite() {
             />
             <Pressable onClick={goStore} sx={{ mt: 12 }}>
                 <Caption1
-                    textAlign={'center'}
                     color={theme.text.caption}
                     sx={{
+                        textAlign: 'center',
                         textDecorationColor: theme.text.caption,
                         textDecorationLine: 'underline',
                     }}

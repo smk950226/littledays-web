@@ -1,21 +1,52 @@
 import { useState, useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
 import { Eyebrow, SecTitle, SecDesc } from './shared';
-import img01 from '@/common/asset/asset/img/upload img 01.png';
-import img02 from '@/common/asset/asset/img/upload img 02.png';
-import img03 from '@/common/asset/asset/img/upload img 03.png';
-import img04 from '@/common/asset/asset/img/upload img 04.png';
-import img05 from '@/common/asset/asset/img/upload img 05.png';
-import img06 from '@/common/asset/asset/img/upload img 06.png';
-import img07 from '@/common/asset/asset/img/upload img 07.png';
-import img08 from '@/common/asset/asset/img/upload img 08.png';
-import img09 from '@/common/asset/asset/img/upload img 09.png';
+import koImg01 from '@/common/asset/asset/img/ko/upload img 01.png';
+import koImg02 from '@/common/asset/asset/img/ko/upload img 02.png';
+import koImg03 from '@/common/asset/asset/img/ko/upload img 03.png';
+import koImg04 from '@/common/asset/asset/img/ko/upload img 04.png';
+import koImg05 from '@/common/asset/asset/img/ko/upload img 05.png';
+import koImg06 from '@/common/asset/asset/img/ko/upload img 06.png';
+import koImg07 from '@/common/asset/asset/img/ko/upload img 07.png';
+import koImg08 from '@/common/asset/asset/img/ko/upload img 08.png';
+import koImg09 from '@/common/asset/asset/img/ko/upload img 09.png';
+import enImg01 from '@/common/asset/asset/img/en/upload img 01.png';
+import enImg02 from '@/common/asset/asset/img/en/upload img 02.png';
+import enImg03 from '@/common/asset/asset/img/en/upload img 03.png';
+import enImg04 from '@/common/asset/asset/img/en/upload img 04.png';
+import enImg05 from '@/common/asset/asset/img/en/upload img 05.png';
+import enImg06 from '@/common/asset/asset/img/en/upload img 06.png';
+import enImg07 from '@/common/asset/asset/img/en/upload img 07.png';
+import enImg08 from '@/common/asset/asset/img/en/upload img 08.png';
+import enImg09 from '@/common/asset/asset/img/en/upload img 09.png';
 import useI18n from '@/common/i18n/hook/use_i18n';
 
-const IMAGES = [img01, img02, img03, img04, img05, img06, img07, img08, img09];
+const IMAGES_KO = [
+    koImg01,
+    koImg02,
+    koImg03,
+    koImg04,
+    koImg05,
+    koImg06,
+    koImg07,
+    koImg08,
+    koImg09,
+];
+const IMAGES_EN = [
+    enImg01,
+    enImg02,
+    enImg03,
+    enImg04,
+    enImg05,
+    enImg06,
+    enImg07,
+    enImg08,
+    enImg09,
+];
 
 export default function TimelineSection() {
-    const { t } = useI18n();
+    const { t, locale } = useI18n();
+    const IMAGES = locale === 'ko' ? IMAGES_KO : IMAGES_EN;
 
     const [activeIdx, setActiveIdx] = useState(0);
     const sectionRef = useRef<HTMLDivElement>(null);

@@ -4,7 +4,7 @@ import { routeTree } from '@/routeTree.gen';
 import Error from '@/feature/root/screen/error';
 import Loading from '@/feature/root/screen/loading';
 import NotFound from '@/feature/root/screen/not-found';
-import { client } from '../repository/query_client';
+import { client } from '@/common/repository/provider';
 
 const router = createRouter({
     routeTree,

@@ -1,19 +1,44 @@
 import { useState, useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
 import { Eyebrow, SecTitle, SecDesc } from './shared';
-import comm01 from '@/common/asset/asset/img/communication img 01.png';
-import comm02 from '@/common/asset/asset/img/communication img 02.png';
-import comm03 from '@/common/asset/asset/img/communication img 03.png';
-import comm04 from '@/common/asset/asset/img/communication img 04.png';
-import comm05 from '@/common/asset/asset/img/communication img 05.png';
-import comm06 from '@/common/asset/asset/img/communication img 06.png';
-import comm07 from '@/common/asset/asset/img/communication img 07.png';
+import koComm01 from '@/common/asset/asset/img/ko/communication img 01.png';
+import koComm02 from '@/common/asset/asset/img/ko/communication img 02.png';
+import koComm03 from '@/common/asset/asset/img/ko/communication img 03.png';
+import koComm04 from '@/common/asset/asset/img/ko/communication img 04.png';
+import koComm05 from '@/common/asset/asset/img/ko/communication img 05.png';
+import koComm06 from '@/common/asset/asset/img/ko/communication img 06.png';
+import koComm07 from '@/common/asset/asset/img/ko/communication img 07.png';
+import enComm01 from '@/common/asset/asset/img/en/communication img 01.png';
+import enComm02 from '@/common/asset/asset/img/en/communication img 02.png';
+import enComm03 from '@/common/asset/asset/img/en/communication img 03.png';
+import enComm04 from '@/common/asset/asset/img/en/communication img 04.png';
+import enComm05 from '@/common/asset/asset/img/en/communication img 05.png';
+import enComm06 from '@/common/asset/asset/img/en/communication img 06.png';
+import enComm07 from '@/common/asset/asset/img/en/communication img 07.png';
 import useI18n from '@/common/i18n/hook/use_i18n';
 
-const IMAGES = [comm01, comm02, comm03, comm04, comm05, comm06, comm07];
+const IMAGES_KO = [
+    koComm01,
+    koComm02,
+    koComm03,
+    koComm04,
+    koComm05,
+    koComm06,
+    koComm07,
+];
+const IMAGES_EN = [
+    enComm01,
+    enComm02,
+    enComm03,
+    enComm04,
+    enComm05,
+    enComm06,
+    enComm07,
+];
 
 export default function Timeline2Section() {
-    const { t } = useI18n();
+    const { t, locale } = useI18n();
+    const IMAGES = locale === 'ko' ? IMAGES_KO : IMAGES_EN;
 
     const [activeIdx, setActiveIdx] = useState(0);
     const sectionRef = useRef<HTMLDivElement>(null);

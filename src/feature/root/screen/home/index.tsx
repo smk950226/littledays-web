@@ -26,7 +26,14 @@ export default function Home() {
     }, [location.pathname]);
 
     return (
-        <Box sx={{ fontFamily: font, fontSize: '16px', fontWeight: 500, overflowX: 'clip' }}>
+        <Box
+            sx={{
+                fontFamily: font,
+                fontSize: '16px',
+                fontWeight: 500,
+                overflowX: 'clip',
+            }}
+        >
             <Nav />
             <HeroSection />
             <TimelineSection />

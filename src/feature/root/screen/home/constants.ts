@@ -1,7 +1,8 @@
 import { alpha } from '@mui/material/styles';
 import type { BoxProps } from '@mui/material/Box';
 
-export const font = "'Pretendard Variable','Pretendard',-apple-system,sans-serif";
+export const font =
+    "'Pretendard Variable','Pretendard',-apple-system,sans-serif";
 
 export const C = {
     primary: '#76D1FF',

@@ -11,7 +11,9 @@ export default function Reveal({ delay = 0, children, sx, ...props }: Props) {
         const el = ref.current;
         if (!el) return;
         const obs = new IntersectionObserver(
-            ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+            ([entry]) => {
+                if (entry.isIntersecting) setVisible(true);
+            },
             { threshold: 0.15 },
         );
         obs.observe(el);

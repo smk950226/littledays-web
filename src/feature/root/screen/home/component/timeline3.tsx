@@ -1,18 +1,26 @@
 import { useState, useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
 import { Eyebrow, SecTitle, SecDesc } from './shared';
-import inv01 from '@/common/asset/asset/img/invitation img 01.png';
-import inv02 from '@/common/asset/asset/img/invitation img 02.png';
-import inv03 from '@/common/asset/asset/img/invitation img 03.png';
-import inv04 from '@/common/asset/asset/img/invitation img 04.png';
-import inv05 from '@/common/asset/asset/img/invitation img 05.png';
-import inv06 from '@/common/asset/asset/img/invitation img 06.png';
+import koInv01 from '@/common/asset/asset/img/ko/invitation img 01.png';
+import koInv02 from '@/common/asset/asset/img/ko/invitation img 02.png';
+import koInv03 from '@/common/asset/asset/img/ko/invitation img 03.png';
+import koInv04 from '@/common/asset/asset/img/ko/invitation img 04.png';
+import koInv05 from '@/common/asset/asset/img/ko/invitation img 05.png';
+import koInv06 from '@/common/asset/asset/img/ko/invitation img 06.png';
+import enInv01 from '@/common/asset/asset/img/en/invitation img 01.png';
+import enInv02 from '@/common/asset/asset/img/en/invitation img 02.png';
+import enInv03 from '@/common/asset/asset/img/en/invitation img 03.png';
+import enInv04 from '@/common/asset/asset/img/en/invitation img 04.png';
+import enInv05 from '@/common/asset/asset/img/en/invitation img 05.png';
+import enInv06 from '@/common/asset/asset/img/en/invitation img 06.png';
 import useI18n from '@/common/i18n/hook/use_i18n';
 
-const IMAGES = [inv01, inv02, inv03, inv04, inv05, inv06];
+const IMAGES_KO = [koInv01, koInv02, koInv03, koInv04, koInv05, koInv06];
+const IMAGES_EN = [enInv01, enInv02, enInv03, enInv04, enInv05, enInv06];
 
 export default function Timeline3Section() {
-    const { t } = useI18n();
+    const { t, locale } = useI18n();
+    const IMAGES = locale === 'ko' ? IMAGES_KO : IMAGES_EN;
 
     const [activeIdx, setActiveIdx] = useState(0);
     const sectionRef = useRef<HTMLDivElement>(null);

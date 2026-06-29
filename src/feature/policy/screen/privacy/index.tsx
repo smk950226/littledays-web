@@ -8,7 +8,11 @@ import Indent from '../../component/indent';
 export default function PolicyPrivacy() {
     return (
         <Screen>
-            <Headline1 textAlign={'center'}>
+            <Headline1
+                sx={{
+                    textAlign: 'center',
+                }}
+            >
                 Little Days 개인정보 처리방침
             </Headline1>
             <Gap.Lg />

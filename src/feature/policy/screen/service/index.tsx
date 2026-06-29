@@ -8,7 +8,11 @@ import Indent from '../../component/indent';
 export default function PolicyService() {
     return (
         <Screen>
-            <Headline1 textAlign={'center'}>
+            <Headline1
+                sx={{
+                    textAlign: 'center',
+                }}
+            >
                 Little Days 서비스 이용약관
             </Headline1>
             <Gap.Lg />

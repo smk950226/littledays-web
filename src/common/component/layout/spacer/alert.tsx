@@ -45,9 +45,9 @@ export default function Alert({
                 />
             )}
             <Subtitle2
-                textAlign={'center'}
                 color={baseColor ? theme.text.caption : theme.text.default}
                 sx={{
+                    textAlign: 'center',
                     mt: titleGap ? titleGap : caption ? 22 : 12,
                 }}
             >
@@ -55,11 +55,13 @@ export default function Alert({
             </Subtitle2>
             {!!caption && (
                 <Body3
-                    textAlign={'center'}
                     color={
                         baseColor ? theme.text.caption : theme.text.description
                     }
-                    sx={{ mt: 8 }}
+                    sx={{
+                        textAlign: 'center',
+                        mt: 8,
+                    }}
                 >
                     {caption}
                 </Body3>

@@ -51,7 +51,12 @@ export default function SubmitButton({
                 ...sx,
             }}
         >
-            <Button1 color={color.text} textAlign={'center'}>
+            <Button1
+                color={color.text}
+                sx={{
+                    textAlign: 'center',
+                }}
+            >
                 {text}
             </Button1>
         </Button>

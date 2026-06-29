@@ -8,5 +8,13 @@ interface Context {
 }
 
 export const Route = createRootRouteWithContext<Context>()({
+    head: () => ({
+        meta: [
+            {
+                name: 'robots',
+                content: 'index, follow',
+            },
+        ],
+    }),
     component: RootLayout,
 });

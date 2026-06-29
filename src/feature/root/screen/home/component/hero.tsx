@@ -5,13 +5,15 @@ import { C, font } from '../constants';
 import { goAppStore, goPlayStore } from '@/common/helper/store';
 import iosIcon from '@/common/asset/asset/img/ios.png';
 import andIcon from '@/common/asset/asset/img/and.png';
-import mainImg from '@/common/asset/asset/img/main.png';
+import koMainImg from '@/common/asset/asset/img/ko/main.png';
+import enMainImg from '@/common/asset/asset/img/en/main.png';
 import useI18n from '@/common/i18n/hook/use_i18n';
 
 export default function HeroSection() {
-    const imgRef = useRef<HTMLDivElement>(null);
+    const { t, locale } = useI18n();
 
-    const { t } = useI18n();
+    const mainImg = locale === 'ko' ? koMainImg : enMainImg;
+    const imgRef = useRef<HTMLDivElement>(null);
 
     const [cardsVisible, setCardsVisible] = useState(false);
 

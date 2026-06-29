@@ -1,7 +1,11 @@
 import Box, { type BoxProps } from '@mui/material/Box';
 import { C, font } from '../constants';
 
-type TextProps = { children: React.ReactNode; light?: boolean; sx?: BoxProps['sx'] };
+type TextProps = {
+    children: React.ReactNode;
+    light?: boolean;
+    sx?: BoxProps['sx'];
+};
 
 export function Eyebrow({ children, sx: sxProp }: TextProps) {
     return (

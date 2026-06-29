@@ -3,9 +3,17 @@ import { forwardRef } from 'react';
 import Box, { type BoxProps } from '@mui/material/Box';
 
 const Col = forwardRef<HTMLDivElement, BoxProps>(
-    ({ children, ...props }, ref) => {
+    ({ children, sx, ...props }, ref) => {
         return (
-            <Box ref={ref} display={'flex'} flexDirection={'column'} {...props}>
+            <Box
+                ref={ref}
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    ...sx,
+                }}
+                {...props}
+            >
                 {children}
             </Box>
         );

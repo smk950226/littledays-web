@@ -10,11 +10,22 @@ type Props = MuiComponent & {
     information: string;
 };
 
-export default function Information({ title, information, ...props }: Props) {
+export default function Information({
+    sx,
+    title,
+    information,
+    ...props
+}: Props) {
     const { theme } = useTheme();
 
     return (
-        <Row alignItems={'center'} {...props}>
+        <Row
+            sx={{
+                alignItems: 'center',
+                ...sx,
+            }}
+            {...props}
+        >
             <Caption1 color={theme.text.description} sx={{ width: 68 }}>
                 {title}
             </Caption1>

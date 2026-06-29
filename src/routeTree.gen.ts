@@ -49,11 +49,11 @@ const InviteCodeIndexRoute = InviteCodeIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/download': typeof DownloadIndexRoute
-  '/invite/$code': typeof InviteCodeIndexRoute
-  '/policy/csae': typeof PolicyCsaeIndexRoute
-  '/policy/privacy': typeof PolicyPrivacyIndexRoute
-  '/policy/service': typeof PolicyServiceIndexRoute
+  '/download/': typeof DownloadIndexRoute
+  '/invite/$code/': typeof InviteCodeIndexRoute
+  '/policy/csae/': typeof PolicyCsaeIndexRoute
+  '/policy/privacy/': typeof PolicyPrivacyIndexRoute
+  '/policy/service/': typeof PolicyServiceIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -76,11 +76,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/download'
-    | '/invite/$code'
-    | '/policy/csae'
-    | '/policy/privacy'
-    | '/policy/service'
+    | '/download/'
+    | '/invite/$code/'
+    | '/policy/csae/'
+    | '/policy/privacy/'
+    | '/policy/service/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -120,35 +120,35 @@ declare module '@tanstack/react-router' {
     '/download/': {
       id: '/download/'
       path: '/download'
-      fullPath: '/download'
+      fullPath: '/download/'
       preLoaderRoute: typeof DownloadIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/policy/service/': {
       id: '/policy/service/'
       path: '/policy/service'
-      fullPath: '/policy/service'
+      fullPath: '/policy/service/'
       preLoaderRoute: typeof PolicyServiceIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/policy/privacy/': {
       id: '/policy/privacy/'
       path: '/policy/privacy'
-      fullPath: '/policy/privacy'
+      fullPath: '/policy/privacy/'
       preLoaderRoute: typeof PolicyPrivacyIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/policy/csae/': {
       id: '/policy/csae/'
       path: '/policy/csae'
-      fullPath: '/policy/csae'
+      fullPath: '/policy/csae/'
       preLoaderRoute: typeof PolicyCsaeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/invite/$code/': {
       id: '/invite/$code/'
       path: '/invite/$code'
-      fullPath: '/invite/$code'
+      fullPath: '/invite/$code/'
       preLoaderRoute: typeof InviteCodeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
