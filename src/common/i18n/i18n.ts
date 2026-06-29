@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import resourcesToBackend from 'i18next-resources-to-backend';
 
+import translationsEn from './translation/en.json';
 import translationsKo from './translation/ko.json';
 import locale from './constant/locale';
 
@@ -15,6 +16,7 @@ i18n.use(LanguageDetector)
     )
     .init({
         resources: {
+            en: { translations: translationsEn },
             ko: { translations: translationsKo },
         },
         fallbackLng: locale.default.value,

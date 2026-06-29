@@ -76,7 +76,7 @@ export default function Invite() {
                 mx: 'auto',
             }}
         >
-            <SvgIcon icon={SvgIcons.logoHorizontal} height={24} />
+            <SvgIcon icon={SvgIcons.logo} height={24} />
             <Headline2 textAlign={'center'} sx={{ mt: 32 }}>
                 {t('inviteTitle', {
                     name: baby.name,
