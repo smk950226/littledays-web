@@ -64,23 +64,22 @@ export default function TimelineSection() {
         let timeoutId: ReturnType<typeof setTimeout>;
         let playing = false;
         let idx = 0;
-        let hasPlayed = false;
         const advance = () => {
             if (!playing) return;
             idx = idx + 1;
-            if (idx >= IMAGES.length) return;
+            if (idx >= IMAGES.length) idx = 0; // 끝까지 재생되면 처음부터 자동 반복
             setActiveIdx(idx);
             timeoutId = setTimeout(advance, 950);
         };
         const obs = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting && !hasPlayed) {
-                    hasPlayed = true;
+                if (entry.isIntersecting) {
+                    // 다시 보이면 멈춘 곳부터 이어서 재생 (화면에 계속 보이면 무한 반복)
+                    if (playing) return;
                     playing = true;
-                    idx = 0;
-                    setActiveIdx(0);
                     timeoutId = setTimeout(advance, 950);
                 } else {
+                    // 화면에서 벗어나면 현재 위치(idx) 유지한 채 일시정지
                     playing = false;
                     clearTimeout(timeoutId);
                 }
