@@ -262,15 +262,15 @@ export default function PolicyPrivacy() {
             <Indent prefix={'●'}>개인정보 보호책임자</Indent>
             <Gap.Sm />
             <Indent prefix={'○'} depth={2}>
-                성명: 김승민
+                성명: 정유찬
             </Indent>
             <Gap.Sm />
             <Indent prefix={'○'} depth={2}>
-                직책: 기술이사
+                직책: 대표이사
             </Indent>
             <Gap.Sm />
             <Indent prefix={'○'} depth={2}>
-                연락처: seungmin.kim@thuplanet.com
+                연락처: yuchan.jung@thuplanet.com
             </Indent>
             <Gap.Sm />
             <Indent prefix={'●'}>개인정보 보호 담당 부서</Indent>
